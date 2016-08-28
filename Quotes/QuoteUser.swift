@@ -1,5 +1,5 @@
 //
-//  Quote.swift
+//  QuoteUser.swift
 //  Quotes
 //
 //  Created by David Park on 8/28/16.
@@ -7,3 +7,10 @@
 //
 
 import Foundation
+
+struct QuoteUser {
+	
+	
+}
+
+
