@@ -8,28 +8,47 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UITableViewController {
 	
 	var parentNavigationController: UINavigationController?
-	
 	private let headerIdentifier = "header"
-	
-	var collectionView = UICollectionView(frame: CGRectZero, collectionViewLayout: UICollectionViewFlowLayout())
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
+		tableView.registerClass(QuoteTableViewCell.self, forCellReuseIdentifier: QuoteTableViewCell.cellIdentifier)
+		tableView.registerClass(ProfileHeaderCell.self, forCellReuseIdentifier: ProfileHeaderCell.cellIdentifier)
+		
 		view.backgroundColor = UIColor.blueColor()
-		setupCollectionView()
 	}
 	
-	func setupCollectionView() {
+	override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+		return 1
+	}
+	
+	override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		return 10
+	}
+	
+	override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+		if indexPath.row == 0 {
+			return (self.view.frame.height/2)
+		}
+		return (self.view.frame.height/3)
+	}
+	
+	override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 		
-		let layout = UICollectionViewFlowLayout()
-		layout.minimumLineSpacing = 1
-		layout.minimumInteritemSpacing = 1
-		layout.itemSize = CGSize(width: view.frame.width, height: view.frame.height/3)
+		var cell = UITableViewCell()
+		print(indexPath.row)
 		
+		if indexPath.row == 0 {
+			cell = tableView.dequeueReusableCellWithIdentifier(ProfileHeaderCell.cellIdentifier, forIndexPath: indexPath) as! ProfileHeaderCell
+		} else {
+			cell = tableView.dequeueReusableCellWithIdentifier(QuoteTableViewCell.cellIdentifier, forIndexPath: indexPath) as! QuoteTableViewCell
+		}
+
+		return cell
 	}
 	
 }

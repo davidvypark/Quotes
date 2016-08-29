@@ -18,8 +18,7 @@ class QuoteTableViewCell: UITableViewCell {
 	let heardByLabel = UILabel()
 	let heardPersonLabel = UILabel()
 	
-	
-	static let cellIdentifier = "QuoteTableViewCell"
+	static let cellIdentifier = "QuoteViewCell"
 	
 	override func layoutSubviews() {
 		super.layoutSubviews()
@@ -87,12 +86,6 @@ class QuoteTableViewCell: UITableViewCell {
 		
 	}
 
-	
-	
-	
-	
-	
-	
 	
 	
 	
