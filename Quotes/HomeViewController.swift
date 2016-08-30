@@ -15,8 +15,9 @@ class HomeViewController: UITableViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		view.backgroundColor = UIColor.greenColor()
+		view.backgroundColor = UIColor.quotesBackgroundColor()
 		tableView.registerClass(QuoteTableViewCell.self, forCellReuseIdentifier: QuoteTableViewCell.cellIdentifier)
+		super.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "search"), style: .Plain, target: self, action: #selector(searchButtonPressed))
 
 	}
 	
@@ -34,4 +35,9 @@ class HomeViewController: UITableViewController {
 		
 		return cell
 	}
+	
+	func searchButtonPressed() {
+		
+	}
+
 }

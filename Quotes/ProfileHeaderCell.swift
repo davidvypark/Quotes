@@ -20,7 +20,6 @@ class ProfileHeaderCell: UITableViewCell {
 	override func layoutSubviews() {
 		super.layoutSubviews()
 		
-		self.backgroundColor = UIColor.cyanColor()
 		setupCell()
 	}
 	
