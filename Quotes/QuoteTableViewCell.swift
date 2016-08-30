@@ -33,8 +33,8 @@ class QuoteTableViewCell: UITableViewCell {
 		addSubview(box)
 		box.snp_makeConstraints { (make) in
 			make.left.equalTo(self.snp_left).offset(10)
-			make.top.equalTo(self.snp_top).offset(5)
-			make.bottom.equalTo(self.snp_bottom).offset(-5)
+			make.top.equalTo(self.snp_top).offset(3)
+			make.bottom.equalTo(self.snp_bottom).offset(-3)
 			make.right.equalTo(self.snp_right).offset(-10)
 		}
 		box.backgroundColor = UIColor.whiteColor()
