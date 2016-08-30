@@ -14,6 +14,11 @@ class AddQuoteViewController: UIViewController {
 	var parentNavigationController: UINavigationController?
 	
 	var textBox = UITextView()
+	var quoteItButton = UIButton()
+	
+	override func viewDidAppear(animated: Bool) {
+		textBox.becomeFirstResponder()
+	}
 	
 	
 	override func viewDidLoad() {
@@ -35,5 +40,32 @@ class AddQuoteViewController: UIViewController {
 		textBox.backgroundColor = UIColor.alizarinColor()
 		textBox.font = UIFont(name: "ArialMT", size: 20)
 		textBox.textColor = UIColor.whiteColor()
+		
+		view.addSubview(quoteItButton)
+		quoteItButton.snp_makeConstraints { (make) in
+			make.bottom.equalTo(textBox.snp_bottom)
+			make.right.equalTo(textBox.snp_right)
+			make.width.equalTo(textBox.snp_width).dividedBy(4)
+			make.height.equalTo(textBox.snp_width).dividedBy(10)
+		}
+		quoteItButton.backgroundColor = UIColor.amethystColor()
+		quoteItButton.addTarget(self, action: #selector(quoteItPressed), forControlEvents: .TouchUpInside)
 	}
+
+	func quoteItPressed() {
+		
+		print("quote it button pressed")
+		
+		let reviewVC = ReviewViewController()
+		parentNavigationController?.pushViewController(reviewVC, animated: true)
+		
+
+	}
+
+
+
+
+
+
+
 }
