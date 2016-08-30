@@ -9,10 +9,6 @@
 import UIKit
 import SnapKit
 
-protocol AddQuoteViewControllerDelegate: class {
-	func didPressDoneButton()
-}
-
 class AddQuoteViewController: UIViewController, UITextViewDelegate {
 	
 	var parentNavigationController: UINavigationController?
@@ -20,6 +16,7 @@ class AddQuoteViewController: UIViewController, UITextViewDelegate {
 	let textBox = UITextView()
 	let quoteItButton = UIButton()
 	let charCountLabel = UILabel()
+	let resetButton = UIButton()
 	
 	override func viewDidAppear(animated: Bool) {
 		textBox.becomeFirstResponder()
@@ -78,6 +75,19 @@ class AddQuoteViewController: UIViewController, UITextViewDelegate {
 		}
 		charCountLabel.text = "300"
 		charCountLabel.textColor = UIColor.peterRiverColor()
+		
+		view.addSubview(resetButton)
+		resetButton.snp_makeConstraints { (make) in
+			make.bottom.equalTo(textBox.snp_bottom).offset(-10)
+			make.left.equalTo(textBox.snp_left)
+			make.height.equalTo(textBox.snp_height).dividedBy(10)
+			make.width.equalTo(textBox.snp_width).dividedBy(4)
+		}
+		//resetButton.backgroundColor = UIColor.alizarinColor()
+		resetButton.setTitle("clear", forState: .Normal)
+		resetButton.setTitleColor(UIColor.silverColor(), forState: .Normal)
+		resetButton.titleLabel!.font = UIFont(name: Constants.headerFont, size: 20)
+		resetButton.addTarget(self, action: #selector(resetButtonPressed), forControlEvents: .TouchUpInside)
 	}
 
 	func quoteItPressed() {
@@ -93,6 +103,10 @@ class AddQuoteViewController: UIViewController, UITextViewDelegate {
 	}
 	
 	func didPressDoneButton() {
+		textBox.text = ""
+	}
+	
+	func resetButtonPressed() {
 		textBox.text = ""
 	}
 

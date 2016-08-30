@@ -202,9 +202,3 @@ class ReviewViewController: UIViewController, UITextFieldDelegate {
 	}
 
 }
-
-extension ReviewViewController: AddQuoteViewControllerDelegate {
-	
-	func didPressDoneButton() {
-	}
-}
