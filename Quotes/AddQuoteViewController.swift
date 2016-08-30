@@ -13,8 +13,9 @@ class AddQuoteViewController: UIViewController {
 	
 	var parentNavigationController: UINavigationController?
 	
-	var textBox = UITextView()
-	var quoteItButton = UIButton()
+	let textBox = UITextView()
+	let quoteItButton = UIButton()
+	let charCountLabel = UILabel()
 	
 	override func viewDidAppear(animated: Bool) {
 		textBox.becomeFirstResponder()
@@ -24,7 +25,7 @@ class AddQuoteViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		view.backgroundColor = UIColor.cyanColor()
+		view.backgroundColor = UIColor.quotesBackgroundColor()
 		setupScene()
 	}
 	
@@ -37,19 +38,35 @@ class AddQuoteViewController: UIViewController {
 			make.right.equalTo(view.snp_right).offset(-20)
 			make.height.equalTo(view.snp_height).dividedBy(2)
 		}
-		textBox.backgroundColor = UIColor.alizarinColor()
-		textBox.font = UIFont(name: Constants.basicFont, size: 20)
-		textBox.textColor = UIColor.whiteColor()
+		textBox.backgroundColor = UIColor.whiteColor()
+		textBox.font = UIFont(name: Constants.basicFont, size: 22)
+		textBox.layer.borderWidth = 1.5
+		textBox.layer.borderColor = UIColor.quotesBorderColor().CGColor
+		textBox.textColor = Constants.textColor
 		
 		view.addSubview(quoteItButton)
 		quoteItButton.snp_makeConstraints { (make) in
-			make.bottom.equalTo(textBox.snp_bottom)
+			make.top.equalTo(textBox.snp_bottom)
 			make.right.equalTo(textBox.snp_right)
-			make.width.equalTo(textBox.snp_width).dividedBy(4)
+			make.width.equalTo(textBox.snp_width).dividedBy(3)
 			make.height.equalTo(textBox.snp_width).dividedBy(10)
 		}
-		quoteItButton.backgroundColor = UIColor.amethystColor()
+		//quoteItButton.backgroundColor = UIColor.amethystColor()
 		quoteItButton.addTarget(self, action: #selector(quoteItPressed), forControlEvents: .TouchUpInside)
+		quoteItButton.setTitle("QUOTE IT", forState: .Normal)
+		quoteItButton.titleLabel!.font = UIFont(name: Constants.headerFont, size: quoteItButton.titleLabel!.font.pointSize)
+		quoteItButton.setTitleColor(Constants.textColor, forState: .Normal)
+	
+		view.addSubview(charCountLabel)
+		charCountLabel.snp_makeConstraints { (make) in
+			make.top.equalTo(quoteItButton.snp_top)
+			make.left.equalTo(textBox.snp_left)
+			make.height.equalTo(quoteItButton.snp_height)
+			make.width.equalTo(quoteItButton.snp_width)
+		}
+		charCountLabel.text = "300"
+		//charCountLabel.backgroundColor = UIColor.alizarinColor()
+		charCountLabel.textColor = Constants.textColor
 	}
 
 	func quoteItPressed() {

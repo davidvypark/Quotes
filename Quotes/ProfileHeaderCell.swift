@@ -53,9 +53,7 @@ class ProfileHeaderCell: UITableViewCell {
 		usernameLabel.textAlignment = .Center
 		usernameLabel.font = UIFont(name: Constants.headerFont, size: 30)
 		usernameLabel.textColor = UIColor.whiteColor()
-		
-		
-		
+
 		
 	}
 }
