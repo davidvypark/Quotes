@@ -45,11 +45,15 @@ class ProfileHeaderCell: UITableViewCell {
 		
 		addSubview(usernameLabel)
 		usernameLabel.snp_makeConstraints { (make) in
-			make.centerX.equalTo(snp_centerX)
-			make.centerY.equalTo(snp_centerY).dividedBy(2)
+			make.centerX.equalTo(self.snp_centerX)
+			make.centerY.equalTo(self.snp_centerY).dividedBy(3)
 			make.width.equalTo(self.snp_width)
 		}
 		usernameLabel.backgroundColor = UIColor.carrotColor()
+		usernameLabel.text = "DAVID"
+		usernameLabel.textAlignment = .Center
+		usernameLabel.font = UIFont(name: "Arial-BoldMT", size: 30)
+		usernameLabel.textColor = UIColor.whiteColor()
 		
 		
 		

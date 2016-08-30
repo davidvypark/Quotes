@@ -57,6 +57,7 @@ class AddQuoteViewController: UIViewController {
 		print("quote it button pressed")
 		
 		let reviewVC = ReviewViewController()
+		reviewVC.title = "REVIEW"
 		parentNavigationController?.pushViewController(reviewVC, animated: true)
 		
 

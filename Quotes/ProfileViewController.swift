@@ -40,7 +40,6 @@ class ProfileViewController: UITableViewController {
 	override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 		
 		var cell = UITableViewCell()
-		print(indexPath.row)
 		
 		if indexPath.row == 0 {
 			cell = tableView.dequeueReusableCellWithIdentifier(ProfileHeaderCell.cellIdentifier, forIndexPath: indexPath) as! ProfileHeaderCell
