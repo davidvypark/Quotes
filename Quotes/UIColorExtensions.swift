@@ -108,7 +108,16 @@ extension UIColor {
             return nil
         }
     }
-    
-    
+	
+	// MARK: - QuoteBox App Colors
+	
+	class func quotesBackgroundColor()->UIColor {
+		return UIColor(r:245, g:248, b:249)
+	}
+	
+	class func quotesBorderColor()->UIColor {
+		return UIColor(r: 235, g: 237, b: 236)
+	}
+
     
 }

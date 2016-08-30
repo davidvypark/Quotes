@@ -32,7 +32,7 @@ class ProfileHeaderCell: UITableViewCell {
 			make.height.equalTo(self.snp_width).dividedBy(3)
 			make.width.equalTo(self.snp_width).dividedBy(3)
 		}
-		profilePicture.backgroundColor = UIColor.darkGrayColor()
+		profilePicture.image = UIImage(named: "profilePic")?.circle
 		
 		addSubview(logoutButton)
 		logoutButton.snp_makeConstraints { (make) in
@@ -52,7 +52,7 @@ class ProfileHeaderCell: UITableViewCell {
 		usernameLabel.backgroundColor = UIColor.carrotColor()
 		usernameLabel.text = "DAVID"
 		usernameLabel.textAlignment = .Center
-		usernameLabel.font = UIFont(name: "Arial-BoldMT", size: 30)
+		usernameLabel.font = UIFont(name: Constants.headerFont, size: 30)
 		usernameLabel.textColor = UIColor.whiteColor()
 		
 		

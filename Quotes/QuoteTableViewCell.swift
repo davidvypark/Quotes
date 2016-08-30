@@ -27,7 +27,7 @@ class QuoteTableViewCell: UITableViewCell {
 	}
 	
 	func setupCell() {
-		self.backgroundColor = UIColor.darkGrayColor()
+		self.backgroundColor = UIColor.back
 		
 		addSubview(quoteBoxLabel)
 		quoteBoxLabel.snp_makeConstraints { (make) in
@@ -36,7 +36,9 @@ class QuoteTableViewCell: UITableViewCell {
 			make.width.equalTo(self.snp_width).multipliedBy(0.67)
 			make.height.equalTo(self.snp_height).dividedBy(2)		//eventually needs to be dynamic based off content
 		}
-		quoteBoxLabel.backgroundColor = UIColor.alizarinColor()
+		quoteBoxLabel.backgroundColor = UIColor.whiteColor()
+		quoteBoxLabel.layer.borderColor = UIColor.silverColor().CGColor
+		quoteBoxLabel.layer.borderWidth = 1
 		
 		addSubview(heardByLabel)
 		heardByLabel.snp_makeConstraints { (make) in
@@ -60,10 +62,10 @@ class QuoteTableViewCell: UITableViewCell {
 		profilePic.snp_makeConstraints { (make) in
 			make.centerY.equalTo(quoteBoxLabel.snp_top)
 			make.centerX.equalTo(self.snp_centerX).dividedBy(4.5)
-			make.width.equalTo(self.snp_width).dividedBy(6)
-			make.height.equalTo(self.snp_width).dividedBy(6)
+			make.width.equalTo(self.snp_width).dividedBy(8)
+			make.height.equalTo(self.snp_width).dividedBy(8)
 		}
-		profilePic.backgroundColor = UIColor.belizeHoleColor()
+		profilePic.image = UIImage(named: "profilePic")?.circle
 
 		addSubview(usernameLabel)
 		usernameLabel.snp_makeConstraints { (make) in
@@ -73,6 +75,7 @@ class QuoteTableViewCell: UITableViewCell {
 		}
 		usernameLabel.backgroundColor = UIColor.carrotColor()
 		usernameLabel.text = "David Park"
+		usernameLabel.font = UIFont(name: Constants.headerFont, size: usernameLabel.font.pointSize)
 
 		addSubview(dateLabel)
 		dateLabel.snp_makeConstraints { (make) in

@@ -38,7 +38,7 @@ class AddQuoteViewController: UIViewController {
 			make.height.equalTo(view.snp_height).dividedBy(2)
 		}
 		textBox.backgroundColor = UIColor.alizarinColor()
-		textBox.font = UIFont(name: "ArialMT", size: 20)
+		textBox.font = UIFont(name: Constants.basicFont, size: 20)
 		textBox.textColor = UIColor.whiteColor()
 		
 		view.addSubview(quoteItButton)
