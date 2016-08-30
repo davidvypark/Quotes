@@ -53,7 +53,7 @@ class PageMenuViewController: UIViewController {
 		let parameters: [CAPSPageMenuOption] = [
 			.ScrollMenuBackgroundColor(UIColor.quotesBackgroundColor()),
 			.ViewBackgroundColor(UIColor.blackColor()),
-			.SelectionIndicatorColor(UIColor.silverColor()),
+			.SelectionIndicatorColor(UIColor.peterRiverColor()),
 			.BottomMenuHairlineColor(UIColor(red: 70.0/255.0, green: 70.0/255.0, blue: 80.0/255.0, alpha: 1.0)),
 			.MenuItemFont(UIFont(name: Constants.headerFont, size: 13.0)!),
 			.MenuHeight(40.0),
