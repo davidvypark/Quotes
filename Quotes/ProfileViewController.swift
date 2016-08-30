@@ -16,6 +16,7 @@ class ProfileViewController: UITableViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
+		tableView.separatorStyle = .None
 		tableView.registerClass(QuoteTableViewCell.self, forCellReuseIdentifier: QuoteTableViewCell.cellIdentifier)
 		tableView.registerClass(ProfileHeaderCell.self, forCellReuseIdentifier: ProfileHeaderCell.cellIdentifier)
 		

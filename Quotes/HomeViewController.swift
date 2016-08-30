@@ -17,7 +17,8 @@ class HomeViewController: UITableViewController {
 		
 		view.backgroundColor = UIColor.quotesBackgroundColor()
 		tableView.registerClass(QuoteTableViewCell.self, forCellReuseIdentifier: QuoteTableViewCell.cellIdentifier)
-		super.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "search"), style: .Plain, target: self, action: #selector(searchButtonPressed))
+		tableView.separatorStyle = .None
+		//super.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "search"), style: .Plain, target: self, action: #selector(searchButtonPressed))
 
 	}
 	
