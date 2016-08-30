@@ -9,56 +9,94 @@
 import UIKit
 import SnapKit
 
-class ReviewViewController: UIViewController {
+class ReviewViewController: UIViewController, UITextFieldDelegate {
 	
 	var saidLabel = UILabel()
 	var heardLabel = UILabel()
 	var whenLabel = UILabel()
 
-	var saidTextField = UITextField()
-	var heardTextField = UITextField()
+	var saidTextField = UITextField()		// These might have
+	var heardTextField = UITextField()		// to be buttons
 	var whenMonthTextField = UITextField()
 	var whenDayTextField = UITextField()
 	var whenYearTextField = UITextField()
-	
+
 	var quoteLabel = UILabel()
+	
+	var quoteText: String?
+	
+	override func viewWillAppear(animated: Bool) {
+		quoteLabel.text = quoteText
+	}
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
 		self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done🖋", style: UIBarButtonItemStyle.Done, target: self, action: #selector(doneButtonPressed))
 		
-		view.backgroundColor = UIColor.blueColor()
+		whenMonthTextField.delegate = self
+		whenDayTextField.delegate = self
+		whenYearTextField.delegate = self
 		
+		view.backgroundColor = UIColor.quotesBackgroundColor()
 		setupScene()
+	
 	}
 	
 	func doneButtonPressed() {
 		
-		let alertController = UIAlertController(title: "Create Quote?", message: "Would you like to publish a new quote?", preferredStyle: .Alert)
-		
-		let OKAction = UIAlertAction(title: "Quote It", style: .Default) { (action) in
-			self.navigationController?.popViewControllerAnimated(true)
+		if (whenMonthTextField.text == "" || whenDayTextField.text == "" || whenYearTextField.text == "") {
+			let alertController = UIAlertController(title: "Wait!", message: "Please fill out WHEN section fully", preferredStyle: .Alert)
+			let OKAction = UIAlertAction(title: "OK", style: .Default, handler: { (action) in
+			})
+			alertController.addAction(OKAction)
+			presentViewController(alertController, animated: true, completion: nil)
+			
+		} else if (Int(whenMonthTextField.text!)! > 12 || Int(whenDayTextField.text!)! > 31) {
+			let alertController = UIAlertController(title: "Huh?", message: "Please enter a valid date", preferredStyle: .Alert)
+			let OKAction = UIAlertAction(title: "OK", style: .Default, handler: { (action) in
+			})
+			alertController.addAction(OKAction)
+			presentViewController(alertController, animated: true, completion: nil)
+			
+		} else {
+			
+			let alertController = UIAlertController(title: "Create Quote?", message: "Would you like to publish a new quote?", preferredStyle: .Alert)
+			
+			let OKAction = UIAlertAction(title: "Quote It", style: .Default) { (action) in
+				self.navigationController?.popViewControllerAnimated(true)
+			}
+			
+			let cancelAction = UIAlertAction(title: "Cancel", style: .Default) { (action) in }
+			
+			alertController.addAction(cancelAction)
+			alertController.addAction(OKAction)
+			
+			presentViewController(alertController, animated: true, completion: nil)
 		}
-		
-		let cancelAction = UIAlertAction(title: "Cancel", style: .Default) { (action) in }
-		
-		alertController.addAction(cancelAction)
-		alertController.addAction(OKAction)
-		
-		presentViewController(alertController, animated: true, completion: nil)
+	}
+	
+	func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+		return whenMonthTextField.text!.characters.count + (string.characters.count - range.length) <= 8
 	}
 	
 	func setupScene() {
+		
+		let labelColor = UIColor.belizeHoleColor()
+		let boxColor = UIColor.quotesBackgroundColor()
+		let borderColor = UIColor.peterRiverColor()
+		let labelFont = Constants.headerFont
 		
 		view.addSubview(saidTextField)
 		saidTextField.snp_makeConstraints { (make) in
 			make.centerX.equalTo(view.snp_centerX).multipliedBy(1.2)
 			make.centerY.equalTo(view.snp_centerY).dividedBy(3)
-			make.width.equalTo(view.snp_width).multipliedBy(0.67)
-			make.height.equalTo(view.snp_height).dividedBy(12)
+			make.width.equalTo(view.snp_width).multipliedBy(0.6)
+			make.height.equalTo(view.snp_height).dividedBy(14)
 		}
-		saidTextField.backgroundColor = UIColor.alizarinColor()
+		saidTextField.backgroundColor = boxColor
+		saidTextField.layer.borderWidth = 1
+		saidTextField.layer.borderColor = borderColor.CGColor
 		
 		view.addSubview(heardTextField)
 		heardTextField.snp_makeConstraints { (make) in
@@ -67,7 +105,9 @@ class ReviewViewController: UIViewController {
 			make.width.equalTo(saidTextField.snp_width)
 			make.height.equalTo(saidTextField.snp_height)
 		}
-		heardTextField.backgroundColor = UIColor.amethystColor()
+		heardTextField.backgroundColor = boxColor
+		heardTextField.layer.borderWidth = 1
+		heardTextField.layer.borderColor = borderColor.CGColor
 		
 		view.addSubview(whenMonthTextField)
 		whenMonthTextField.snp_makeConstraints { (make) in
@@ -76,7 +116,12 @@ class ReviewViewController: UIViewController {
 			make.width.equalTo(saidTextField.snp_width).dividedBy(3.25)
 			make.height.equalTo(heardTextField.snp_height)
 		}
-		whenMonthTextField.backgroundColor = UIColor.carrotColor()
+		whenMonthTextField.backgroundColor = boxColor
+		whenMonthTextField.layer.borderWidth = 1
+		whenMonthTextField.layer.borderColor = borderColor.CGColor
+		whenMonthTextField.placeholder = "MM"
+		whenMonthTextField.textAlignment = .Center
+		whenMonthTextField.keyboardType = .NumberPad
 		
 		view.addSubview(whenDayTextField)
 		whenDayTextField.snp_makeConstraints { (make) in
@@ -85,7 +130,12 @@ class ReviewViewController: UIViewController {
 			make.width.equalTo(whenMonthTextField.snp_width)
 			make.height.equalTo(whenMonthTextField.snp_height)
 		}
-		whenDayTextField.backgroundColor = UIColor.cyanColor()
+		whenDayTextField.backgroundColor = boxColor
+		whenDayTextField.layer.borderWidth = 1
+		whenDayTextField.layer.borderColor = borderColor.CGColor
+		whenDayTextField.placeholder = "DD"
+		whenDayTextField.textAlignment = .Center
+		whenMonthTextField.keyboardType = .NumberPad
 		
 		view.addSubview(whenYearTextField)
 		whenYearTextField.snp_makeConstraints { (make) in
@@ -94,15 +144,24 @@ class ReviewViewController: UIViewController {
 			make.width.equalTo(whenDayTextField.snp_width)
 			make.height.equalTo(whenDayTextField.snp_height)
 		}
-		whenYearTextField.backgroundColor = UIColor.emeraldColor()
+		whenYearTextField.backgroundColor = boxColor
+		whenYearTextField.layer.borderWidth = 1
+		whenYearTextField.layer.borderColor = borderColor.CGColor
+		whenYearTextField.placeholder = "YYYY"
+		whenYearTextField.textAlignment = .Center
+		whenYearTextField.keyboardType = .NumberPad
 		
 		view.addSubview(quoteLabel)
 		quoteLabel.snp_makeConstraints { (make) in
 			make.center.equalTo(view.snp_center)
-			make.height.equalTo(view.snp_height).dividedBy(8)
-			make.width.equalTo(view.snp_width).multipliedBy(0.9)
+			make.height.equalTo(view.snp_height).dividedBy(6)
+			make.width.equalTo(view.snp_width).multipliedBy(0.8)
 		}
-		quoteLabel.backgroundColor = UIColor.greenSeaColor()
+		quoteLabel.backgroundColor = boxColor
+		quoteLabel.lineBreakMode = .ByWordWrapping
+		quoteLabel.numberOfLines = 5
+		quoteLabel.font = UIFont(name: Constants.headerFont, size: 18)
+		quoteLabel.textColor = UIColor.peterRiverColor()
 		
 		view.addSubview(saidLabel)
 		saidLabel.snp_makeConstraints { (make) in
@@ -112,7 +171,9 @@ class ReviewViewController: UIViewController {
 			make.right.equalTo(saidTextField.snp_left)
 		}
 		saidLabel.text = "SAID"
-		saidLabel.backgroundColor = UIColor.grayColor()
+		//saidLabel.backgroundColor = UIColor.grayColor()
+		saidLabel.textColor = labelColor
+		saidLabel.font = UIFont(name: labelFont, size: saidLabel.font.pointSize)
 		
 		view.addSubview(heardLabel)
 		heardLabel.snp_makeConstraints { (make) in
@@ -122,7 +183,9 @@ class ReviewViewController: UIViewController {
 			make.right.equalTo(heardTextField.snp_right)
 		}
 		heardLabel.text = "HEARD"
-		heardLabel.backgroundColor = UIColor.darkGrayColor()
+		//heardLabel.backgroundColor = UIColor.darkGrayColor()
+		heardLabel.textColor = labelColor
+		heardLabel.font = UIFont(name: labelFont, size: heardLabel.font.pointSize)
 		
 		view.addSubview(whenLabel)
 		whenLabel.snp_makeConstraints { (make) in
@@ -132,9 +195,16 @@ class ReviewViewController: UIViewController {
 			make.right.equalTo(whenMonthTextField.snp_left)
 		}
 		whenLabel.text = "WHEN"
-		whenLabel.backgroundColor = UIColor.magentaColor()
-		
+		//whenLabel.backgroundColor = UIColor.magentaColor()
+		whenLabel.textColor = labelColor
+		whenLabel.font = UIFont(name: labelFont, size: whenLabel.font.pointSize)
 		
 	}
 
+}
+
+extension ReviewViewController: AddQuoteViewControllerDelegate {
+	
+	func didPressDoneButton() {
+	}
 }

@@ -9,7 +9,11 @@
 import UIKit
 import SnapKit
 
-class AddQuoteViewController: UIViewController {
+protocol AddQuoteViewControllerDelegate: class {
+	func didPressDoneButton()
+}
+
+class AddQuoteViewController: UIViewController, UITextViewDelegate {
 	
 	var parentNavigationController: UINavigationController?
 	
@@ -21,12 +25,21 @@ class AddQuoteViewController: UIViewController {
 		textBox.becomeFirstResponder()
 	}
 	
-	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
 		view.backgroundColor = UIColor.quotesBackgroundColor()
+		textBox.delegate = self
 		setupScene()
+		//textView(textBox, shouldChangeTextInRange: NSMakeRange(0, 10), replacementText: "")
+	}
+	
+	func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text:String) -> Bool {
+		return textView.text.characters.count + (text.characters.count - range.length) <= 300
+	}
+	
+	func textViewDidChange(textView: UITextView) {
+		charCountLabel.text = String(300 - textBox.text.characters.count)
 	}
 	
 	func setupScene() {
@@ -51,7 +64,6 @@ class AddQuoteViewController: UIViewController {
 			make.width.equalTo(textBox.snp_width).dividedBy(3)
 			make.height.equalTo(textBox.snp_width).dividedBy(10)
 		}
-		//quoteItButton.backgroundColor = UIColor.amethystColor()
 		quoteItButton.addTarget(self, action: #selector(quoteItPressed), forControlEvents: .TouchUpInside)
 		quoteItButton.setTitle("QUOTE IT", forState: .Normal)
 		quoteItButton.titleLabel!.font = UIFont(name: Constants.headerFont, size: quoteItButton.titleLabel!.font.pointSize)
@@ -65,7 +77,6 @@ class AddQuoteViewController: UIViewController {
 			make.width.equalTo(quoteItButton.snp_width)
 		}
 		charCountLabel.text = "300"
-		//charCountLabel.backgroundColor = UIColor.alizarinColor()
 		charCountLabel.textColor = UIColor.peterRiverColor()
 	}
 
@@ -75,14 +86,15 @@ class AddQuoteViewController: UIViewController {
 		
 		let reviewVC = ReviewViewController()
 		reviewVC.title = "REVIEW"
+		reviewVC.quoteText = textBox.text
 		parentNavigationController?.pushViewController(reviewVC, animated: true)
 		
-
+		//textBox.text = ""
 	}
-
-
-
-
+	
+	func didPressDoneButton() {
+		textBox.text = ""
+	}
 
 
 

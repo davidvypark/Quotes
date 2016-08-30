@@ -183,6 +183,7 @@
 				TargetAttributes = {
 					FFCE345C1D71F50C00CF2F69 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = JKHZT4LSSL;
 					};
 				};
 			};
@@ -399,6 +400,7 @@
 			baseConfigurationReference = 1D701768B96B902F0EA2F52B /* Pods-Quotes.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Quotes/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.DavidVY.Quotes;
@@ -411,6 +413,7 @@
 			baseConfigurationReference = B85E1C97D30D6C522186B77A /* Pods-Quotes.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Quotes/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.DavidVY.Quotes;

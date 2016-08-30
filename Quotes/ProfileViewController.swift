@@ -20,7 +20,7 @@ class ProfileViewController: UITableViewController {
 		tableView.registerClass(QuoteTableViewCell.self, forCellReuseIdentifier: QuoteTableViewCell.cellIdentifier)
 		tableView.registerClass(ProfileHeaderCell.self, forCellReuseIdentifier: ProfileHeaderCell.cellIdentifier)
 		
-		view.backgroundColor = UIColor.blueColor()
+		view.backgroundColor = UIColor.quotesBackgroundColor()
 	}
 	
 	override func numberOfSectionsInTableView(tableView: UITableView) -> Int {

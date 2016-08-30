@@ -12,7 +12,7 @@ import PageMenu
 class PageMenuViewController: UIViewController {
 	
 	var pageMenu: CAPSPageMenu?
-
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		

@@ -50,7 +50,7 @@ class QuoteTableViewCell: UITableViewCell {
 		}
 		quoteBoxLabel.backgroundColor = UIColor.whiteColor()
 		quoteBoxLabel.lineBreakMode = .ByWordWrapping
-		quoteBoxLabel.numberOfLines = 3
+		quoteBoxLabel.numberOfLines = 5
 		quoteBoxLabel.font = UIFont(name: Constants.basicFont, size: quoteBoxLabel.font.pointSize)
 		quoteBoxLabel.text = "If you want to build a ship ... teach them to yearn for the vast and endless sea."
 		
