@@ -55,7 +55,7 @@ class AddQuoteViewController: UIViewController {
 		quoteItButton.addTarget(self, action: #selector(quoteItPressed), forControlEvents: .TouchUpInside)
 		quoteItButton.setTitle("QUOTE IT", forState: .Normal)
 		quoteItButton.titleLabel!.font = UIFont(name: Constants.headerFont, size: quoteItButton.titleLabel!.font.pointSize)
-		quoteItButton.setTitleColor(Constants.textColor, forState: .Normal)
+		quoteItButton.setTitleColor(UIColor.peterRiverColor(), forState: .Normal)
 	
 		view.addSubview(charCountLabel)
 		charCountLabel.snp_makeConstraints { (make) in
@@ -66,7 +66,7 @@ class AddQuoteViewController: UIViewController {
 		}
 		charCountLabel.text = "300"
 		//charCountLabel.backgroundColor = UIColor.alizarinColor()
-		charCountLabel.textColor = Constants.textColor
+		charCountLabel.textColor = UIColor.peterRiverColor()
 	}
 
 	func quoteItPressed() {

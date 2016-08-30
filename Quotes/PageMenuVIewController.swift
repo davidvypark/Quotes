@@ -22,7 +22,7 @@ class PageMenuViewController: UIViewController {
 	
 	func setupNavBar() {
 		self.title = "QUOTES"
-		self.navigationController?.navigationBar.barTintColor = UIColor.darkGrayColor()
+		self.navigationController?.navigationBar.barTintColor = UIColor.peterRiverColor()
 		self.navigationController?.navigationBar.shadowImage = UIImage()
 		self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
 		self.navigationController?.navigationBar.translucent = false
@@ -55,12 +55,11 @@ class PageMenuViewController: UIViewController {
 			.ViewBackgroundColor(UIColor.blackColor()),
 			.SelectionIndicatorColor(UIColor.silverColor()),
 			.BottomMenuHairlineColor(UIColor(red: 70.0/255.0, green: 70.0/255.0, blue: 80.0/255.0, alpha: 1.0)),
-			.MenuItemFont(UIFont(name: "HelveticaNeue", size: 13.0)!),
+			.MenuItemFont(UIFont(name: Constants.headerFont, size: 13.0)!),
 			.MenuHeight(40.0),
 			.MenuItemWidth(100.0),
 			.CenterMenuItems(true),
-			.SelectedMenuItemLabelColor(Constants.textColor)
-			//.UnselectedMenuItemLabelColor(UIColor.)
+			.SelectedMenuItemLabelColor(UIColor.peterRiverColor())
 			]
 		
 		pageMenu = CAPSPageMenu(viewControllers: controllerArray, frame: CGRectMake(0.0, 0.0, self.view.frame.width, self.view.frame.height), pageMenuOptions: parameters)
