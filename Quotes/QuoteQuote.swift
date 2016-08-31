@@ -13,6 +13,6 @@ struct QuoteQuote {
 	let author: QuoteUser!
 	let heardBy: [QuoteUser]?
 	let content: String?
-	let date: NSDate?
+	let date: NSString?
 	
 }

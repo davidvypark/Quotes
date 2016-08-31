@@ -14,6 +14,7 @@ class HomeViewController: UITableViewController {
 	
 	var parentNavigationController: UINavigationController?
 	
+	var shared = UserDataStore.sharedDataStore
 	var testUser1: QuoteUser!				// Test
 	var testUser2: QuoteUser!				// Data
 	var testQuote1: QuoteQuote!				// To
@@ -33,20 +34,19 @@ class HomeViewController: UITableViewController {
 		//quoteRef.childByAutoId().setValue(testQuote1)
 		//quoteRef.childByAutoId().setValue("Hello from the other side")
 		
-		let author = testQuote1.author.userId
+		let author = testQuote1.author.name
 		let content = testQuote1.content
 		var heardBy = [String]()
 		let date = String(testQuote1.date)
 		
 		for user in testQuote1.heardBy! {
-			heardBy.append(user.userId!)
+			heardBy.append(user.phoneNumber!)
 		}
 		
 		quoteRef.child("content").setValue(content)
 		quoteRef.child("author").setValue(author)
 		quoteRef.child("heardBy").setValue(heardBy)
 		quoteRef.child("date").setValue(date)
-		
 		
 //		quoteRef.childByAutoId().setValue(content, forKey: "content")
 //		quoteRef.childByAutoId().setValue(author, forKey: "author")
@@ -67,20 +67,32 @@ class HomeViewController: UITableViewController {
 		
 		let cell = tableView.dequeueReusableCellWithIdentifier(QuoteTableViewCell.cellIdentifier, forIndexPath: indexPath) as! QuoteTableViewCell
 		
+//		let post = shared.posts[indexPath.row]
+//
+//		cell.profilePic.image = UIImage(named: "profilePic")
+//		cell.usernameLabel.text = post.author.name
+//		cell.quoteBoxLabel.text = post.content
+//		cell.dateLabel.text = String(post.date)
+//		var heardPersons = [String]()
+//		for user in post.heardBy! {
+//			heardPersons.append(user.phoneNumber!)
+//		}
+//		cell.heardPersonLabel.text = heardPersons.joinWithSeparator(", ")
+	
 		return cell
 	}
-	
+
 	func searchButtonPressed() {
 		
 	}
 	
 	func generateTestData() {
 		
-		testUser1 = QuoteUser(userId: "asd", name: "David", phoneNumber: "3233233233", contacts: [])
-		testUser2 = QuoteUser(userId: "blah", name: "Joe", phoneNumber: "2322322322", contacts: [testUser1])
+		testUser1 = QuoteUser(name: "David", phoneNumber: "3233233233", contacts: [])
+		testUser2 = QuoteUser(name: "Joe", phoneNumber: "2322322322", contacts: [testUser1])
 		
-		testQuote1 = QuoteQuote(author: testUser1, heardBy: [testUser2], content: "HELLO", date: NSDate(timeIntervalSinceReferenceDate: 0))
-		testQuote2 = QuoteQuote(author: testUser2, heardBy: [testUser1], content: "YOYO", date: NSDate(timeIntervalSinceReferenceDate: 0))
+		testQuote1 = QuoteQuote(author: testUser1, heardBy: [testUser2], content: "HELLO", date: "12/11/1991")
+		testQuote2 = QuoteQuote(author: testUser2, heardBy: [testUser1], content: "YOYO", date: "3/3/2005")
 	}
 
 }
