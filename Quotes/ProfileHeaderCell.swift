@@ -22,13 +22,15 @@ class ProfileHeaderCell: UITableViewCell {
 		self.backgroundColor = UIColor.quotesBackgroundColor()
 		
 		setupCell()
+		setupSegments()
 	}
 	
 	func setupCell() {
 		
 		addSubview(profilePicture)
 		profilePicture.snp_makeConstraints { (make) in
-			make.center.equalTo(self.snp_center)
+			make.centerX.equalTo(self.snp_centerX)
+			make.centerY.equalTo(self.snp_centerY).dividedBy(1.15)
 			make.height.equalTo(self.snp_width).dividedBy(3.2)
 			make.width.equalTo(self.snp_width).dividedBy(3.2)
 		}
@@ -37,7 +39,7 @@ class ProfileHeaderCell: UITableViewCell {
 		addSubview(logoutButton)
 		logoutButton.snp_makeConstraints { (make) in
 			make.centerX.equalTo(profilePicture.snp_centerX)
-			make.centerY.equalTo(self.snp_centerY).multipliedBy(1.7)
+			make.centerY.equalTo(self.snp_centerY).multipliedBy(1.55)
 			make.width.equalTo(profilePicture.snp_width)
 			make.height.equalTo(profilePicture.snp_width).dividedBy(2.5)
 		}
@@ -51,12 +53,36 @@ class ProfileHeaderCell: UITableViewCell {
 		addSubview(usernameLabel)
 		usernameLabel.snp_makeConstraints { (make) in
 			make.centerX.equalTo(self.snp_centerX)
-			make.centerY.equalTo(self.snp_centerY).dividedBy(3)
+			make.centerY.equalTo(self.snp_centerY).dividedBy(3.5)
 			make.width.equalTo(self.snp_width)
 		}
 		usernameLabel.text = "DAVID"
 		usernameLabel.textAlignment = .Center
 		usernameLabel.font = UIFont(name: Constants.headerFont, size: 25)
 		usernameLabel.textColor = UIColor.peterRiverColor()
+	}
+	
+	func setupSegments() {
+		
+		let items = ["Said By", "Heard By"]
+		let customSC = UISegmentedControl(items: items)
+		customSC.selectedSegmentIndex = 0
+		
+		addSubview(customSC)
+		customSC.snp_makeConstraints { (make) in
+			make.centerX.equalTo(self.snp_centerX)
+			make.width.equalTo(self.snp_width)
+			make.height.equalTo(logoutButton.snp_height).dividedBy(1.5)
+			make.bottom.equalTo(self.snp_bottom)
+		}
+		customSC.addTarget(self, action: #selector(changeView), forControlEvents: .ValueChanged)
+		customSC.backgroundColor = UIColor.whiteColor()
+		customSC.tintColor = UIColor.peterRiverColor()
+	
+	}
+	
+	
+	func changeView(sender: UISegmentedControl) {
+		
 	}
 }
