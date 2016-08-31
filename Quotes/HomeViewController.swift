@@ -34,19 +34,19 @@ class HomeViewController: UITableViewController {
 		//quoteRef.childByAutoId().setValue(testQuote1)
 		//quoteRef.childByAutoId().setValue("Hello from the other side")
 		
-		let author = testQuote1.author.name
-		let content = testQuote1.content
+		let author = testQuote2.author.name
+		let content = testQuote2.content
 		var heardBy = [String]()
-		let date = String(testQuote1.date)
+		let date = String(testQuote2.date)
 		
 		for user in testQuote1.heardBy! {
 			heardBy.append(user.phoneNumber!)
 		}
-		
-		quoteRef.child("content").setValue(content)
-		quoteRef.child("author").setValue(author)
-		quoteRef.child("heardBy").setValue(heardBy)
-		quoteRef.child("date").setValue(date)
+		let newQuoteRef = quoteRef.childByAutoId()
+		newQuoteRef.child("content").setValue(content)
+		newQuoteRef.child("author").setValue(author)
+		newQuoteRef.child("heardBy").setValue(heardBy)
+		newQuoteRef.child("date").setValue(date)
 		
 //		quoteRef.childByAutoId().setValue(content, forKey: "content")
 //		quoteRef.childByAutoId().setValue(author, forKey: "author")

@@ -11,8 +11,8 @@ import Foundation
 struct QuoteQuote {
 	
 	let author: QuoteUser!
-	let heardBy: [QuoteUser]?
-	let content: String?
-	let date: NSString?
+	let heardBy: [QuoteUser]!
+	let content: String!
+	let date: String!
 	
 }

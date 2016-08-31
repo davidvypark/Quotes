@@ -60,8 +60,6 @@ class LoginViewController: UIViewController {
 			make.centerX.equalTo(phoneNumberTextField.snp_centerX)
 			make.height.equalTo(view.snp_height).dividedBy(20)
 		}
-		
-		
 		loginButton.setTitle("LOGIN", forState: .Normal)
 		loginButton.backgroundColor = UIColor.peterRiverColor()
 		loginButton.addTarget(self, action: #selector(loginButtonPressed), forControlEvents: .TouchUpInside)

@@ -30,7 +30,7 @@ class UserDataStore {
 				let author = dict["Author"] as! QuoteUser
 				let heardBy = dict["heardBy"] as! [QuoteUser]
 				let content = dict["content"] as! String
-				let date = dict["date"] as! NSString			//This should be a String
+				let date = dict["date"] as! String			//This should be a String
 				
 				self.posts.append(QuoteQuote(author: author, heardBy: heardBy, content: content, date: date))
 			}
