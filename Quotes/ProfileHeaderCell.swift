@@ -83,6 +83,9 @@ class ProfileHeaderCell: UITableViewCell {
 	
 	
 	func changeView(sender: UISegmentedControl) {
-		
 	}
+	
+	func profilePictureTapped() {
+	}
+	
 }

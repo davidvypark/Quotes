@@ -17,6 +17,7 @@
 		FF8AAE791D74E3E300331852 /* ProfileHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8AAE781D74E3E200331852 /* ProfileHeaderCell.swift */; };
 		FF8AAE7B1D750EFB00331852 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8AAE7A1D750EFB00331852 /* ReviewViewController.swift */; };
 		FF8AAE7D1D75177600331852 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8AAE7C1D75177600331852 /* Constants.swift */; };
+		FF8AAE7F1D765D0800331852 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8AAE7E1D765D0700331852 /* LoginViewController.swift */; };
 		FFCE34611D71F50C00CF2F69 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCE34601D71F50C00CF2F69 /* AppDelegate.swift */; };
 		FFCE34631D71F50C00CF2F69 /* PageMenuVIewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCE34621D71F50C00CF2F69 /* PageMenuVIewController.swift */; };
 		FFCE34661D71F50C00CF2F69 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFCE34641D71F50C00CF2F69 /* Main.storyboard */; };
@@ -40,6 +41,7 @@
 		FF8AAE781D74E3E200331852 /* ProfileHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileHeaderCell.swift; sourceTree = "<group>"; };
 		FF8AAE7A1D750EFB00331852 /* ReviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
 		FF8AAE7C1D75177600331852 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		FF8AAE7E1D765D0700331852 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		FFCE345D1D71F50C00CF2F69 /* Quotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFCE34601D71F50C00CF2F69 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FFCE34621D71F50C00CF2F69 /* PageMenuVIewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageMenuVIewController.swift; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 		FF8AAE671D73795300331852 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FF8AAE7E1D765D0700331852 /* LoginViewController.swift */,
 				FFCE34621D71F50C00CF2F69 /* PageMenuVIewController.swift */,
 				FFCE34741D73683800CF2F69 /* HomeViewController.swift */,
 				FFCE34761D73688A00CF2F69 /* AddQuoteViewController.swift */,
@@ -272,6 +275,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF8AAE7F1D765D0800331852 /* LoginViewController.swift in Sources */,
 				FF8AAE791D74E3E300331852 /* ProfileHeaderCell.swift in Sources */,
 				FF8AAE721D73839600331852 /* UIColorExtensions.swift in Sources */,
 				FF8AAE7B1D750EFB00331852 /* ReviewViewController.swift in Sources */,
