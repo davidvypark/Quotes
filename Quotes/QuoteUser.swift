@@ -10,11 +10,10 @@ import Foundation
 
 struct QuoteUser {
 
+	let userId: String?
 	let name: String?
 	let phoneNumber: String?
 	let contacts: [QuoteUser]?
-	let saidQuotes: [QuoteQuote]?
-	let heardQuotes: [QuoteQuote]?
 	
 	
 }

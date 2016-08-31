@@ -9,5 +9,6 @@ target 'Quotes' do
   pod 'PageMenu'
   pod 'SnapKit'
   pod 'Firebase'
+  pod 'FirebaseDatabase'
 
 end

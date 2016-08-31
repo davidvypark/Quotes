@@ -101,11 +101,6 @@ class QuoteTableViewCell: UITableViewCell {
 		dateLabel.text = "12/11/16"
 		dateLabel.adjustsFontSizeToFitWidth = true
 		
-	}
-
-	
-	
-	
-	
+	}	
 	
 }
