@@ -6,6 +6,7 @@
 //  Copyright © 2016 DavidVY. All rights reserved.
 //
 
+import Foundation
 import UIKit
 import SnapKit
 
@@ -77,7 +78,21 @@ class ReviewViewController: UIViewController, UITextFieldDelegate {
 	}
 	
 	func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-		return whenMonthTextField.text!.characters.count + (string.characters.count - range.length) <= 8
+		
+		if (textField == whenMonthTextField) {
+			if(textField.text!.characters.count - range.length + string.characters.count > 2) {
+				return false
+			}
+		} else if (textField == whenDayTextField) {
+			if(textField.text!.characters.count - range.length + string.characters.count > 2) {
+				return false
+			}
+		} else if (textField == whenYearTextField) {
+			if(textField.text!.characters.count - range.length + string.characters.count > 4) {
+				return false
+			}
+		}
+		return true
 	}
 	
 	func setupScene() {

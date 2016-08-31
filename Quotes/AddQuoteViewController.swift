@@ -108,6 +108,7 @@ class AddQuoteViewController: UIViewController, UITextViewDelegate {
 	
 	func resetButtonPressed() {
 		textBox.text = ""
+		charCountLabel.text = "300"
 	}
 
 
