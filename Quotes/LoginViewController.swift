@@ -8,6 +8,8 @@
 
 import UIKit
 import SnapKit
+import Firebase
+import FirebaseDatabase
 
 class LoginViewController: UIViewController {
 	
@@ -15,7 +17,6 @@ class LoginViewController: UIViewController {
 	let phoneNumberTextField = UITextField()
 	let firstNameField = UITextField()
 	let lastNameField = UITextField()
-	
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -68,6 +69,13 @@ class LoginViewController: UIViewController {
 	
 	func loginButtonPressed() {
 		//if phone number is valid
+		
+		let userRef = FIRDatabase.database().reference().child("QuoteUser")
+		let newUserRef = userRef.child(phoneNumberTextField.text!)
+		newUserRef.child("name").setValue(firstNameField.text! + " " + lastNameField.text!)
+		
+		
+		
 		
 		let storyboard = UIStoryboard(name: "Main", bundle: nil)
 		let naviVC = storyboard.instantiateViewControllerWithIdentifier("NavigationVC") as! UINavigationController

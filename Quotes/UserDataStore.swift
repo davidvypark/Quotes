@@ -28,7 +28,7 @@ class UserDataStore {
 		quoteRef.observeEventType(.ChildAdded, withBlock: { snapshot in
 			if let dict = snapshot.value as? [String: AnyObject] {
 				let author = dict["Author"] as! QuoteUser
-				let heardBy = dict["heardBy"] as! [QuoteUser]
+				let heardBy = dict["heardBy"] as! [String]
 				let content = dict["content"] as! String
 				let date = dict["date"] as! String			//This should be a String
 				
