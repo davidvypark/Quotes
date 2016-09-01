@@ -68,6 +68,8 @@ class ProfileViewController: UITableViewController {
 	}
 	
 	func filterQuotePosts() {
+		saidByArray.removeAll()
+		heardByArray.removeAll()
 		for post in shared.posts {
 			if post.authorId == shared.currentUser {
 				saidByArray.append(post)
