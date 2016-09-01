@@ -91,14 +91,22 @@ class AddQuoteViewController: UIViewController, UITextViewDelegate {
 
 	func quoteItPressed() {
 		
-		print("quote it button pressed")
-		
-		let reviewVC = ReviewViewController()
-		reviewVC.title = "REVIEW"
-		reviewVC.quoteText = textBox.text
-		parentNavigationController?.pushViewController(reviewVC, animated: true)
-		
-		//textBox.text = ""
+		if (textBox.text.isEmpty) {
+			let alertController = UIAlertController(title: "Oops", message: "Please write a quote", preferredStyle: .Alert)
+			let OKAction = UIAlertAction(title: "OK", style: .Default, handler: { (action) in })
+			
+			alertController.addAction(OKAction)
+			presentViewController(alertController, animated: true, completion: nil)
+			
+		} else {
+			
+			print("quote it button pressed")
+			
+			let reviewVC = ReviewViewController()
+			reviewVC.title = "REVIEW"
+			reviewVC.quoteText = textBox.text
+			parentNavigationController?.pushViewController(reviewVC, animated: true)
+		}
 	}
 	
 	func didPressDoneButton() {
