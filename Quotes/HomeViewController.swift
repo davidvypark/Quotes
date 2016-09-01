@@ -57,6 +57,7 @@ class HomeViewController: UITableViewController {
 	}
 	
 	func fetchPostsData() {
+		print("fetching posts from database")
 		
 		self.shared.posts.removeAll()
 		quoteRef.observeEventType(.ChildAdded, withBlock: { snapshot in
@@ -67,6 +68,7 @@ class HomeViewController: UITableViewController {
 				let heardBy = dict["heardBy"] as! [String]
 				let content = dict["content"] as! String
 				let date = dict["date"] as! String
+				
 				
 				self.shared.posts.insert((QuoteQuote(authorId: authorId, author: author, heardBy: heardBy, content: content, date: date)), atIndex: 0)
 				self.tableView.reloadData()
@@ -107,6 +109,7 @@ class HomeViewController: UITableViewController {
 	}
 	
 	func generateTestData() {
+		print("generating test data")
 		
 		testUser1 = QuoteUser(name: "David", phoneNumber: "3233233233", contacts: [])
 		testUser2 = QuoteUser(name: "Joe", phoneNumber: "2322322322", contacts: [testUser1])
