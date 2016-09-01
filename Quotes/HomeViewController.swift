@@ -36,11 +36,14 @@ class HomeViewController: UITableViewController {
 		//quoteRef.childByAutoId().setValue(testQuote1)
 		//quoteRef.childByAutoId().setValue("Hello from the other side")
 		
-//		let author = testQuote2.author.name
+//		let authorId = testQuote2.authorId
+//		let author = testQuote2.author
 //		let content = testQuote2.content
 //		let heardBy = testQuote2.heardBy
 //		let date = String(testQuote2.date)
 //		let newQuoteRef = quoteRef.childByAutoId()
+//		
+//		newQuoteRef.child("authorId").setValue(authorId)
 //		newQuoteRef.child("content").setValue(content)
 //		newQuoteRef.child("author").setValue(author)
 //		newQuoteRef.child("heardBy").setValue(heardBy)
@@ -57,12 +60,13 @@ class HomeViewController: UITableViewController {
 		quoteRef.observeEventType(.ChildAdded, withBlock: { snapshot in
 			print(snapshot)
 			if let dict = snapshot.value as? [String: AnyObject] {
+				let authorId = dict["authorId"] as! String
 				let author = dict["author"] as! String
 				let heardBy = dict["heardBy"] as! [String]
 				let content = dict["content"] as! String
 				let date = dict["date"] as! String			//This should be a String
 				
-				self.shared.posts.insert((QuoteQuote(author: author, heardBy: heardBy, content: content, date: date)), atIndex: 0)
+				self.shared.posts.insert((QuoteQuote(authorId: authorId, author: author, heardBy: heardBy, content: content, date: date)), atIndex: 0)
 				self.tableView.reloadData()
 			}
 		})
@@ -105,8 +109,8 @@ class HomeViewController: UITableViewController {
 		testUser1 = QuoteUser(name: "David", phoneNumber: "3233233233", contacts: [])
 		testUser2 = QuoteUser(name: "Joe", phoneNumber: "2322322322", contacts: [testUser1])
 		
-		testQuote1 = QuoteQuote(author: testUser1.name, heardBy: [testUser2.phoneNumber!], content: "HELLO", date: "12/11/1991")
-		testQuote2 = QuoteQuote(author: testUser2.name, heardBy: [testUser1.phoneNumber!], content: "YOYO", date: "3/3/2005")
+		testQuote1 = QuoteQuote(authorId: "3233273655", author: testUser1.name, heardBy: [testUser2.phoneNumber!], content: "HELLO", date: "12/11/1991")
+		testQuote2 = QuoteQuote(authorId: "1112223333", author: testUser2.name, heardBy: [testUser1.phoneNumber!], content: "YOYO", date: "3/3/2005")
 	}
 	
 }

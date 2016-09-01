@@ -70,7 +70,7 @@ class ProfileHeaderCell: UITableViewCell {
 	
 	func setupSegments() {
 		
-		customSC.selectedSegmentIndex = 0
+		//customSC.selectedSegmentIndex = 0
 		
 		addSubview(customSC)
 		customSC.snp_makeConstraints { (make) in

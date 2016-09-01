@@ -10,6 +10,7 @@ import Foundation
 
 struct QuoteQuote {
 	
+	let authorId: String!
 	let author: String!
 	let heardBy: [String]!
 	let content: String!

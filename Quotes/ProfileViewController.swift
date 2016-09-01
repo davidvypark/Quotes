@@ -36,7 +36,7 @@ class ProfileViewController: UITableViewController {
 	}
 	
 	override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return 10
+		return postsArray.count + 1
 	}
 	
 	override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -55,26 +55,26 @@ class ProfileViewController: UITableViewController {
 		} else {
 			let cell = tableView.dequeueReusableCellWithIdentifier(QuoteTableViewCell.cellIdentifier, forIndexPath: indexPath) as! QuoteTableViewCell
 			
-//			let post = postsArray[indexPath.row]
-//			
-//			cell.profilePic.image = UIImage(named: "profilePic")?.circle
-//			cell.usernameLabel.text = post.author
-//			cell.quoteBoxLabel.text = post.content
-//			cell.dateLabel.text = post.date
-//			
+			let post = postsArray[indexPath.row - 1]
+			
+			cell.profilePic.image = UIImage(named: "profilePic")?.circle
+			cell.usernameLabel.text = post.author
+			cell.quoteBoxLabel.text = post.content
+			cell.dateLabel.text = post.date
+			
 			return cell
 			
 		}
 	}
 	
 	func filterQuotePosts() {
-//		for post in shared.posts {
-//			if post.author = currentUser {
-//				saidByArray.append(post)
-//			} else if post.heardBy.contains(currentUser.phoneNumber) {
-//				heardByArray.append(post)
-//			}
-//		}
+		for post in shared.posts {
+			if post.authorId == shared.currentUser {
+				saidByArray.append(post)
+			} else if post.heardBy.contains(shared.currentUser) {
+				heardByArray.append(post)
+			}
+		}
 	}
 
 }
@@ -90,6 +90,7 @@ extension ProfileViewController: ProfileHeaderCellDelegate {
 			print("Segment Changed to Heard By")
 			postsArray = heardByArray
 		}
+		tableView.reloadData()
 	}
 	
 }
