@@ -96,6 +96,11 @@ extension ProfileViewController: ProfileHeaderCellDelegate {
 	func logoutButtonPressed() {
 		print("Logout Button Pressed")
 		
+		let storyboard = UIStoryboard(name: "Main", bundle: nil)
+		let loginVC = storyboard.instantiateViewControllerWithIdentifier("LoginVC") 
+		let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+		appDelegate.window?.rootViewController = loginVC
+		
 	}
 	
 }
