@@ -91,7 +91,7 @@ class HomeViewController: UITableViewController {
 		
 		let post = shared.posts[indexPath.row]
 
-		cell.profilePic.image = UIImage(named: "profilePic")?.circle
+		cell.profilePic.image = UIImage(named: "defaultPicture")?.circle
 		cell.usernameLabel.text = post.author
 		cell.quoteBoxLabel.text = post.content
 		cell.dateLabel.text = post.date
