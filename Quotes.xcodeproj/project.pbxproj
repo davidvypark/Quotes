@@ -93,9 +93,9 @@
 				FFCE34741D73683800CF2F69 /* HomeViewController.swift */,
 				FFCE34761D73688A00CF2F69 /* AddQuoteViewController.swift */,
 				FF8AAE651D73746200331852 /* ProfileViewController.swift */,
+				FF8AAE781D74E3E200331852 /* ProfileHeaderCell.swift */,
 				FF8AAE7A1D750EFB00331852 /* ReviewViewController.swift */,
 				FF8AAE681D73798200331852 /* QuoteTableViewCell.swift */,
-				FF8AAE781D74E3E200331852 /* ProfileHeaderCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";

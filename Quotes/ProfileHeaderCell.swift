@@ -15,11 +15,13 @@ protocol ProfileHeaderCellDelegate: class {
 
 class ProfileHeaderCell: UITableViewCell {
 	
+	weak var delegate: ProfileHeaderCellDelegate?
 	static let cellIdentifier = "ProfileHeaderCell"
 	
 	let profilePicture = UIImageView()
 	let logoutButton = UIButton()
 	let usernameLabel = UILabel()
+	let customSC = UISegmentedControl(items: ["Said By", "Heard By"])
 	
 	override func layoutSubviews() {
 		super.layoutSubviews()
@@ -68,8 +70,6 @@ class ProfileHeaderCell: UITableViewCell {
 	
 	func setupSegments() {
 		
-		let items = ["Said By", "Heard By"]
-		let customSC = UISegmentedControl(items: items)
 		customSC.selectedSegmentIndex = 0
 		
 		addSubview(customSC)
@@ -79,14 +79,15 @@ class ProfileHeaderCell: UITableViewCell {
 			make.height.equalTo(logoutButton.snp_height).dividedBy(1.5)
 			make.bottom.equalTo(self.snp_bottom)
 		}
-		customSC.addTarget(self, action: #selector(changeView), forControlEvents: .ValueChanged)
+		customSC.addTarget(self, action: #selector(forwardButtonAction), forControlEvents: .ValueChanged)
 		customSC.backgroundColor = UIColor.whiteColor()
 		customSC.tintColor = UIColor.peterRiverColor()
 	
+	
 	}
 	
-	
-	func changeView(sender: UISegmentedControl) {
+	func forwardButtonAction() {
+		delegate?.changeView(customSC)
 	}
 	
 }

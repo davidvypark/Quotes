@@ -50,6 +50,7 @@ class ProfileViewController: UITableViewController {
 		
 		if indexPath.row == 0 {
 			let headerCell = tableView.dequeueReusableCellWithIdentifier(ProfileHeaderCell.cellIdentifier, forIndexPath: indexPath) as! ProfileHeaderCell
+			headerCell.delegate = self
 			return headerCell
 		} else {
 			let cell = tableView.dequeueReusableCellWithIdentifier(QuoteTableViewCell.cellIdentifier, forIndexPath: indexPath) as! QuoteTableViewCell
@@ -76,8 +77,6 @@ class ProfileViewController: UITableViewController {
 //		}
 	}
 
-
-
 }
 
 extension ProfileViewController: ProfileHeaderCellDelegate {
@@ -85,11 +84,12 @@ extension ProfileViewController: ProfileHeaderCellDelegate {
 	func changeView(sender: UISegmentedControl) {
 		switch sender.selectedSegmentIndex {
 		case 0:
+			print("Segment Changed to Said By")
 			postsArray = saidByArray
 		default:
+			print("Segment Changed to Heard By")
 			postsArray = heardByArray
 		}
-		
-		tableView.reloadData()
 	}
+	
 }
