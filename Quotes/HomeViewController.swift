@@ -57,6 +57,8 @@ class HomeViewController: UITableViewController {
 	}
 	
 	func fetchPostsData() {
+		
+		self.shared.posts.removeAll()
 		quoteRef.observeEventType(.ChildAdded, withBlock: { snapshot in
 			print(snapshot)
 			if let dict = snapshot.value as? [String: AnyObject] {
@@ -64,7 +66,7 @@ class HomeViewController: UITableViewController {
 				let author = dict["author"] as! String
 				let heardBy = dict["heardBy"] as! [String]
 				let content = dict["content"] as! String
-				let date = dict["date"] as! String			//This should be a String
+				let date = dict["date"] as! String
 				
 				self.shared.posts.insert((QuoteQuote(authorId: authorId, author: author, heardBy: heardBy, content: content, date: date)), atIndex: 0)
 				self.tableView.reloadData()

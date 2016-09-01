@@ -28,7 +28,6 @@ class AddQuoteViewController: UIViewController, UITextViewDelegate {
 		view.backgroundColor = UIColor.quotesBackgroundColor()
 		textBox.delegate = self
 		setupScene()
-		//textView(textBox, shouldChangeTextInRange: NSMakeRange(0, 10), replacementText: "")
 	}
 	
 	func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text:String) -> Bool {

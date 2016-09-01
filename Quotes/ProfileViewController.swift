@@ -63,7 +63,6 @@ class ProfileViewController: UITableViewController {
 			cell.dateLabel.text = post.date
 			
 			return cell
-			
 		}
 	}
 	
@@ -102,7 +101,7 @@ extension ProfileViewController: ProfileHeaderCellDelegate {
 		let loginVC = storyboard.instantiateViewControllerWithIdentifier("LoginVC") 
 		let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 		appDelegate.window?.rootViewController = loginVC
-		
+	
 	}
 	
 }

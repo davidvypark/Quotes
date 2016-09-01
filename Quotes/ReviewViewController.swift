@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 import SnapKit
+import Firebase
+import FirebaseDatabase
 
 class ReviewViewController: UIViewController, UITextFieldDelegate {
 	
@@ -65,6 +67,25 @@ class ReviewViewController: UIViewController, UITextFieldDelegate {
 			let alertController = UIAlertController(title: "Create Quote?", message: "Would you like to publish a new quote?", preferredStyle: .Alert)
 			
 			let OKAction = UIAlertAction(title: "Quote It", style: .Default) { (action) in
+				
+				//create a new QuoteQuote to databse
+				//need to be set and updated with contacts
+				
+				let newQuoteRef = FIRDatabase.database().reference().child("QuoteQuote").childByAutoId()
+				
+				let authorId = self.saidTextField.text
+				let author = "temp"
+				let content = self.quoteText
+				var heardBy = [String]()
+				heardBy.append(self.heardTextField.text!)
+				let date = "\(self.whenMonthTextField.text!)/\(self.whenDayTextField.text!)/\(self.whenYearTextField.text!)"
+				
+				newQuoteRef.child("authorId").setValue(authorId)
+				newQuoteRef.child("author").setValue(author)
+				newQuoteRef.child("content").setValue(content)
+				newQuoteRef.child("heardBy").setValue(heardBy)
+				newQuoteRef.child("date").setValue(date)
+				
 				self.navigationController?.popViewControllerAnimated(true)
 			}
 			
