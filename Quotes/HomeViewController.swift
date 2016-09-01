@@ -33,8 +33,9 @@ class HomeViewController: UITableViewController {
 		generateTestData()
 		fetchPostsData()
 		
-		//quoteRef.childByAutoId().setValue(testQuote1)
-		//quoteRef.childByAutoId().setValue("Hello from the other side")
+		
+		//***Manually push data to FIRDatabase***
+		
 		
 //		let authorId = testQuote2.authorId
 //		let author = testQuote2.author

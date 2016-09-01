@@ -18,6 +18,10 @@ class ProfileViewController: UITableViewController {
 	var postsArray = [QuoteQuote]()
 	private let headerIdentifier = "header"
 	
+	override func viewWillAppear(animated: Bool) {
+		filterQuotePosts()
+	}
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
