@@ -80,6 +80,7 @@ class ProfileViewController: UITableViewController {
 				heardByArray.append(post)
 			}
 		}
+		tableView.reloadData()
 	}
 
 }
