@@ -9,6 +9,10 @@
 import UIKit
 import SnapKit
 
+protocol ProfileHeaderCellDelegate: class {
+	func changeView()
+}
+
 class ProfileHeaderCell: UITableViewCell {
 	
 	static let cellIdentifier = "ProfileHeaderCell"
@@ -83,9 +87,6 @@ class ProfileHeaderCell: UITableViewCell {
 	
 	
 	func changeView(sender: UISegmentedControl) {
-	}
-	
-	func profilePictureTapped() {
 	}
 	
 }

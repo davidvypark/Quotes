@@ -11,7 +11,7 @@ import SnapKit
 
 class QuoteTableViewCell: UITableViewCell {
 	
-	var profilePic = UIImageView()
+	var profilePic = UIImageView()		//change to UIButton
 	var usernameLabel = UILabel()
 	var quoteBoxLabel = UILabel()
 	var dateLabel = UILabel()
@@ -101,6 +101,10 @@ class QuoteTableViewCell: UITableViewCell {
 		//dateLabel.text = "12/11/16"
 		dateLabel.adjustsFontSizeToFitWidth = true
 		
-	}	
+	}
+	
+	func profilePictureTapped() {
+		
+	}
 	
 }
