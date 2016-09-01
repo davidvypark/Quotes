@@ -81,14 +81,11 @@ class HomeViewController: UITableViewController {
 		let cell = tableView.dequeueReusableCellWithIdentifier(QuoteTableViewCell.cellIdentifier, forIndexPath: indexPath) as! QuoteTableViewCell
 		
 		let post = shared.posts[indexPath.row]
-		print (post)
-		print (cell.usernameLabel.text)
 
 		cell.profilePic.image = UIImage(named: "profilePic")?.circle
 		cell.usernameLabel.text = post.author
-		print(cell.usernameLabel.text)
 		cell.quoteBoxLabel.text = post.content
-		cell.dateLabel.text = String(post.date)
+		cell.dateLabel.text = post.date
 		
 //		var heardPersons = [String]()
 //		for user in post.heardBy! {

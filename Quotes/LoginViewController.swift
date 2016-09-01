@@ -13,6 +13,8 @@ import FirebaseDatabase
 
 class LoginViewController: UIViewController {
 	
+	let shared = UserDataStore.sharedDataStore
+	
 	let loginButton = UIButton()
 	let phoneNumberTextField = UITextField()
 	let firstNameField = UITextField()
@@ -73,6 +75,9 @@ class LoginViewController: UIViewController {
 		let userRef = FIRDatabase.database().reference().child("QuoteUser")
 		let newUserRef = userRef.child(phoneNumberTextField.text!)
 		newUserRef.child("name").setValue(firstNameField.text! + " " + lastNameField.text!)
+		
+		shared.currentUser = phoneNumberTextField.text
+		print("Current User is \(shared.currentUser)")
 		
 		let storyboard = UIStoryboard(name: "Main", bundle: nil)
 		let naviVC = storyboard.instantiateViewControllerWithIdentifier("NavigationVC") as! UINavigationController

@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 
 protocol ProfileHeaderCellDelegate: class {
-	func changeView()
+	func changeView(sender: UISegmentedControl)
 }
 
 class ProfileHeaderCell: UITableViewCell {

@@ -18,6 +18,7 @@ class UserDataStore {
 	var lastName: String?
 	var profilePicture: UIImage?
 	var phoneNumber: String?
+	var currentUser: String?
 	
 	var posts = [QuoteQuote]()
 	
