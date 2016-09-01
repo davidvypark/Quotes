@@ -103,13 +103,21 @@ class LoginViewController: UIViewController {
 		shared.currentUser = phoneNumberTextField.text
 		print("Current User is \(shared.currentUser)")
 		
-		let storyboard = UIStoryboard(name: "Main", bundle: nil)
-		let naviVC = storyboard.instantiateViewControllerWithIdentifier("NavigationVC") as! UINavigationController
-		let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-		appDelegate.window?.rootViewController = naviVC
+		goToPageMenu()
 	}
 	
 	func loginWithPhoneNumber() {
 		
+		shared.currentUser = loginWithPhoneNumberTextField.text
+		goToPageMenu()
+	}
+	
+	func goToPageMenu() {
+		
+		let storyboard = UIStoryboard(name: "Main", bundle: nil)
+		let naviVC = storyboard.instantiateViewControllerWithIdentifier("NavigationVC") as! UINavigationController
+		let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+		appDelegate.window?.rootViewController = naviVC
+	
 	}
 }
