@@ -74,9 +74,6 @@ class LoginViewController: UIViewController {
 		let newUserRef = userRef.child(phoneNumberTextField.text!)
 		newUserRef.child("name").setValue(firstNameField.text! + " " + lastNameField.text!)
 		
-		
-		
-		
 		let storyboard = UIStoryboard(name: "Main", bundle: nil)
 		let naviVC = storyboard.instantiateViewControllerWithIdentifier("NavigationVC") as! UINavigationController
 		let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate

@@ -11,12 +11,12 @@ import SnapKit
 
 class QuoteTableViewCell: UITableViewCell {
 	
-	let profilePic = UIImageView()
-	let usernameLabel = UILabel()
-	let quoteBoxLabel = UILabel()
-	let dateLabel = UILabel()
-	let heardByLabel = UILabel()
-	let heardPersonLabel = UILabel()
+	var profilePic = UIImageView()
+	var usernameLabel = UILabel()
+	var quoteBoxLabel = UILabel()
+	var dateLabel = UILabel()
+	var heardByLabel = UILabel()
+	var heardPersonLabel = UILabel()
 	let box = UIView()
 	
 	static let cellIdentifier = "QuoteViewCell"
@@ -52,7 +52,7 @@ class QuoteTableViewCell: UITableViewCell {
 		quoteBoxLabel.lineBreakMode = .ByWordWrapping
 		quoteBoxLabel.numberOfLines = 5
 		quoteBoxLabel.font = UIFont(name: Constants.basicFont, size: quoteBoxLabel.font.pointSize)
-		quoteBoxLabel.text = "If you want to build a ship ... teach them to yearn for the vast and endless sea."
+		//quoteBoxLabel.text = "If you want to build a ship ... teach them to yearn for the vast and endless sea."
 		
 		addSubview(heardByLabel)
 		heardByLabel.snp_makeConstraints { (make) in
@@ -79,7 +79,7 @@ class QuoteTableViewCell: UITableViewCell {
 			make.width.equalTo(self.snp_width).dividedBy(9)
 			make.height.equalTo(self.snp_width).dividedBy(9)
 		}
-		profilePic.image = UIImage(named: "profilePic")?.circle
+		//profilePic.image = UIImage(named: "profilePic")?.circle
 
 		addSubview(usernameLabel)
 		usernameLabel.snp_makeConstraints { (make) in
@@ -88,7 +88,7 @@ class QuoteTableViewCell: UITableViewCell {
 			make.width.equalTo(quoteBoxLabel).multipliedBy(0.8)
 		}
 		//usernameLabel.backgroundColor = UIColor.carrotColor()
-		usernameLabel.text = "Antoine de Saint-Exupery"
+		//usernameLabel.text = "Antoine de Saint-Exupery"
 		usernameLabel.font = UIFont(name: Constants.headerFont, size: usernameLabel.font.pointSize)
 
 		addSubview(dateLabel)
@@ -98,7 +98,7 @@ class QuoteTableViewCell: UITableViewCell {
 			make.width.equalTo(self.snp_width).dividedBy(7)
 		}
 		//dateLabel.backgroundColor = UIColor.concreteColor()
-		dateLabel.text = "12/11/16"
+		//dateLabel.text = "12/11/16"
 		dateLabel.adjustsFontSizeToFitWidth = true
 		
 	}	

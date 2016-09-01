@@ -14,7 +14,6 @@ struct QuoteUser {
 	let phoneNumber: String?
 	let contacts: [QuoteUser]?
 	
-	
 }
 
 
