@@ -15,10 +15,13 @@ class LoginViewController: UIViewController {
 	
 	let shared = UserDataStore.sharedDataStore
 	
-	let loginButton = UIButton()
+	let createNewUserButton = UIButton()
 	let phoneNumberTextField = UITextField()
 	let firstNameField = UITextField()
 	let lastNameField = UITextField()
+	
+	let loginWithPhoneNumberTextField = UITextField()
+	let loginButton = UIButton()
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -29,7 +32,8 @@ class LoginViewController: UIViewController {
 	func setupScene() {
 		view.addSubview(phoneNumberTextField)
 		phoneNumberTextField.snp_makeConstraints { (make) in
-			make.center.equalTo(view.snp_center)
+			make.centerY.equalTo(view.snp_centerY).dividedBy(1.5)
+			make.centerX.equalTo(view.snp_centerX)
 			make.width.equalTo(view.snp_width).multipliedBy(0.35)
 			make.height.equalTo(view.snp_height).dividedBy(20)
 		}
@@ -56,20 +60,40 @@ class LoginViewController: UIViewController {
 		firstNameField.backgroundColor = UIColor.quotesBorderColor()
 		firstNameField.placeholder = " First Name"
 		
-		view.addSubview(loginButton)
-		loginButton.snp_makeConstraints { (make) in
+		view.addSubview(createNewUserButton)
+		createNewUserButton.snp_makeConstraints { (make) in
 			make.top.equalTo(phoneNumberTextField.snp_bottom).offset(20)
-			make.width.equalTo(phoneNumberTextField.snp_width).dividedBy(2)
+			make.width.equalTo(phoneNumberTextField.snp_width)
 			make.centerX.equalTo(phoneNumberTextField.snp_centerX)
 			make.height.equalTo(view.snp_height).dividedBy(20)
 		}
-		loginButton.setTitle("LOGIN", forState: .Normal)
-		loginButton.backgroundColor = UIColor.peterRiverColor()
-		loginButton.addTarget(self, action: #selector(loginButtonPressed), forControlEvents: .TouchUpInside)
+		createNewUserButton.setTitle("Create New User", forState: .Normal)
+		createNewUserButton.backgroundColor = UIColor.peterRiverColor()
+		createNewUserButton.addTarget(self, action: #selector(createNewUserButtonPressed), forControlEvents: .TouchUpInside)
 	
+		view.addSubview(loginWithPhoneNumberTextField)
+		loginWithPhoneNumberTextField.snp_makeConstraints { (make) in
+			make.width.equalTo(createNewUserButton.snp_width)
+			make.center.equalTo(view.snp_center)
+			make.height.equalTo(createNewUserButton.snp_height)
+		}
+		loginWithPhoneNumberTextField.backgroundColor = UIColor.quotesBorderColor()
+		loginWithPhoneNumberTextField.placeholder = "(###) ### #####"
+		
+		view.addSubview(loginButton)
+		loginButton.snp_makeConstraints { (make) in
+			make.width.equalTo(loginWithPhoneNumberTextField.snp_width)
+			make.height.equalTo(loginWithPhoneNumberTextField.snp_height)
+			make.centerX.equalTo(loginWithPhoneNumberTextField.snp_centerX)
+			make.top.equalTo(loginWithPhoneNumberTextField.snp_bottom).offset(20)
+		}
+		loginButton.backgroundColor = UIColor.peterRiverColor()
+		loginButton.setTitle("LOGIN", forState: .Normal)
+		loginButton.addTarget(self, action: #selector(loginWithPhoneNumber), forControlEvents: .TouchUpInside)
+		
 	}
 	
-	func loginButtonPressed() {
+	func createNewUserButtonPressed() {
 		//if phone number is valid
 		
 		let userRef = FIRDatabase.database().reference().child("QuoteUser")
@@ -83,6 +107,9 @@ class LoginViewController: UIViewController {
 		let naviVC = storyboard.instantiateViewControllerWithIdentifier("NavigationVC") as! UINavigationController
 		let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 		appDelegate.window?.rootViewController = naviVC
+	}
+	
+	func loginWithPhoneNumber() {
 		
 	}
 }
