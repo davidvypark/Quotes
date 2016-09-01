@@ -93,4 +93,9 @@ extension ProfileViewController: ProfileHeaderCellDelegate {
 		tableView.reloadData()
 	}
 	
+	func logoutButtonPressed() {
+		print("Logout Button Pressed")
+		
+	}
+	
 }

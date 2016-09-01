@@ -11,6 +11,7 @@ import SnapKit
 
 protocol ProfileHeaderCellDelegate: class {
 	func changeView(sender: UISegmentedControl)
+	func logoutButtonPressed()
 }
 
 class ProfileHeaderCell: UITableViewCell {
@@ -55,6 +56,7 @@ class ProfileHeaderCell: UITableViewCell {
 		logoutButton.setTitle("Logout", forState: .Normal)
 		logoutButton.setTitleColor(UIColor.peterRiverColor(), forState: .Normal)
 		logoutButton.layer.cornerRadius = self.frame.width / 16
+		logoutButton.addTarget(self, action: #selector(ProfileViewController.logoutButtonPressed), forControlEvents: .TouchUpInside)
 		
 		addSubview(usernameLabel)
 		usernameLabel.snp_makeConstraints { (make) in
@@ -79,14 +81,16 @@ class ProfileHeaderCell: UITableViewCell {
 			make.height.equalTo(logoutButton.snp_height).dividedBy(1.5)
 			make.bottom.equalTo(self.snp_bottom)
 		}
-		customSC.addTarget(self, action: #selector(forwardButtonAction), forControlEvents: .ValueChanged)
+		customSC.addTarget(self, action: #selector(changeSegment), forControlEvents: .ValueChanged)
 		customSC.backgroundColor = UIColor.whiteColor()
 		customSC.tintColor = UIColor.peterRiverColor()
-	
-	
 	}
 	
-	func forwardButtonAction() {
+	func logoutButtonPressed() {
+		delegate?.logoutButtonPressed()
+	}
+	
+	func changeSegment() {
 		delegate?.changeView(customSC)
 	}
 	
