@@ -62,7 +62,7 @@ class HomeViewController: UITableViewController {
 				let content = dict["content"] as! String
 				let date = dict["date"] as! String			//This should be a String
 				
-				self.shared.posts.append(QuoteQuote(author: author, heardBy: heardBy, content: content, date: date))
+				self.shared.posts.insert((QuoteQuote(author: author, heardBy: heardBy, content: content, date: date)), atIndex: 0)
 				self.tableView.reloadData()
 			}
 		})
