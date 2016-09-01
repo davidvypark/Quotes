@@ -84,7 +84,7 @@ class HomeViewController: UITableViewController {
 		print (post)
 		print (cell.usernameLabel.text)
 
-		cell.profilePic.image = UIImage(named: "profilePic")
+		cell.profilePic.image = UIImage(named: "profilePic")?.circle
 		cell.usernameLabel.text = post.author
 		print(cell.usernameLabel.text)
 		cell.quoteBoxLabel.text = post.content
