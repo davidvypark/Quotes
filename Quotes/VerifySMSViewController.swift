@@ -16,12 +16,13 @@ class VerifySMSViewController: UIViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		
-		view.backgroundColor = UIColor.whiteColor()
+
 		setupScene()
 	}
 	
 	func setupScene() {
+		
+		view.backgroundColor = UIColor.quotesBackgroundColor()
 		
 		view.addSubview(statusLabel)
 		statusLabel.snp_makeConstraints { (make) in
@@ -38,17 +39,31 @@ class VerifySMSViewController: UIViewController {
 			make.centerX.equalTo(view.snp_centerX)
 			make.centerY.equalTo(view.snp_centerY).dividedBy(1.5)
 		}
-		verifyButton.backgroundColor = UIColor.amethystColor()
+		verifyButton.backgroundColor = UIColor.peterRiverColor()
+		verifyButton.addTarget(self, action: #selector(verifyButtonPressed), forControlEvents: .TouchUpInside)
+		verifyButton.setTitle("Verify Code", forState: .Normal)
+		verifyButton.layer.cornerRadius = view.frame.height / 20
+		verifyButton.titleLabel?.font = UIFont(name: Constants.headerFont, size: 20)
 		
 		view.addSubview(codeTextField)
 		codeTextField.snp_makeConstraints { (make) in
 			make.width.equalTo(verifyButton.snp_width)
 			make.height.equalTo(verifyButton.snp_height)
 			make.centerX.equalTo(verifyButton.snp_centerX)
-			make.bottom.equalTo(verifyButton.snp_top).offset(-10)
+			make.bottom.equalTo(verifyButton.snp_top).offset(-20)
 		}
-		codeTextField.backgroundColor = UIColor.belizeHoleColor()
+		codeTextField.backgroundColor = UIColor.whiteColor()
+		codeTextField.layer.cornerRadius = view.frame.height / 40
+		codeTextField.layer.borderWidth = 1
+		codeTextField.layer.borderColor = UIColor.quotesBorderColor().CGColor
 		
+		
+	}
+	
+	func verifyButtonPressed() {
+		
+		verifyButton.buttonBounce()
+		print("Verify Button Pressed")
 		
 	}
 

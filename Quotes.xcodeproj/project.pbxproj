@@ -28,6 +28,7 @@
 		FFCE34751D73683800CF2F69 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCE34741D73683800CF2F69 /* HomeViewController.swift */; };
 		FFCE34771D73688A00CF2F69 /* AddQuoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCE34761D73688A00CF2F69 /* AddQuoteViewController.swift */; };
 		FFF0E0241D7A1CC70021DA85 /* VerifySMSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF0E0231D7A1CC70021DA85 /* VerifySMSViewController.swift */; };
+		FFF0E0261D7A225F0021DA85 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF0E0251D7A225F0021DA85 /* UIViewExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		FFCE34741D73683800CF2F69 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		FFCE34761D73688A00CF2F69 /* AddQuoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddQuoteViewController.swift; sourceTree = "<group>"; };
 		FFF0E0231D7A1CC70021DA85 /* VerifySMSViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifySMSViewController.swift; sourceTree = "<group>"; };
+		FFF0E0251D7A225F0021DA85 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 			children = (
 				FF8AAE6F1D73839600331852 /* UIColorExtensions.swift */,
 				FF8AAE701D73839600331852 /* UIImageExtension.swift */,
+				FFF0E0251D7A225F0021DA85 /* UIViewExtension.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 				FFCE34631D71F50C00CF2F69 /* PageMenuVIewController.swift in Sources */,
 				FFCE34771D73688A00CF2F69 /* AddQuoteViewController.swift in Sources */,
 				FF8AAE731D73839600331852 /* UIImageExtension.swift in Sources */,
+				FFF0E0261D7A225F0021DA85 /* UIViewExtension.swift in Sources */,
 				FF8AAE691D73798200331852 /* QuoteTableViewCell.swift in Sources */,
 				FF8AAE7D1D75177600331852 /* Constants.swift in Sources */,
 				FF8AAE661D73746200331852 /* ProfileViewController.swift in Sources */,

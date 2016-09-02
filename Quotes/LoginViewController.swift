@@ -23,10 +23,18 @@ class LoginViewController: UIViewController {
 	let loginWithPhoneNumberTextField = UITextField()
 	let loginButton = UIButton()
 	
+	override func viewDidAppear(animated: Bool) {
+		super.viewDidAppear(animated)
+		
+		let verifyVC = VerifySMSViewController()
+		presentViewController(verifyVC, animated: true, completion: nil)
+	}
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 	
 		setupScene()
+
 	}
 
 	func setupScene() {
