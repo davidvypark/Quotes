@@ -36,7 +36,6 @@ class HomeViewController: UITableViewController {
 		
 		//***Manually push data to FIRDatabase***
 		
-		
 //		let authorId = testQuote2.authorId
 //		let author = testQuote2.author
 //		let content = testQuote2.content
@@ -91,7 +90,7 @@ class HomeViewController: UITableViewController {
 		
 		let post = shared.posts[indexPath.row]
 
-		cell.profilePic.image = UIImage(named: "defaultPicture")?.circle
+		cell.profilePic.setImage(UIImage(named:"defaultPicture")?.circle, forState: .Normal)
 		cell.usernameLabel.text = post.author
 		cell.quoteBoxLabel.text = post.content
 		cell.dateLabel.text = post.date

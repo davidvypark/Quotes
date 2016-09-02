@@ -11,7 +11,7 @@ import SnapKit
 
 class QuoteTableViewCell: UITableViewCell {
 	
-	var profilePic = UIImageView()		//change to UIButton
+	var profilePic = UIButton()		//change to UIButton
 	var usernameLabel = UILabel()
 	var quoteBoxLabel = UILabel()
 	var dateLabel = UILabel()
@@ -80,6 +80,7 @@ class QuoteTableViewCell: UITableViewCell {
 			make.height.equalTo(self.snp_width).dividedBy(9)
 		}
 		//profilePic.image = UIImage(named: "profilePic")?.circle
+		profilePic.addTarget(self, action: #selector(profilePictureTapped), forControlEvents: .TouchUpInside)
 
 		addSubview(usernameLabel)
 		usernameLabel.snp_makeConstraints { (make) in
@@ -104,6 +105,7 @@ class QuoteTableViewCell: UITableViewCell {
 	}
 	
 	func profilePictureTapped() {
+		print ("profile picture tapped")
 		
 	}
 	
