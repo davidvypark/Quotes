@@ -102,6 +102,8 @@ class LoginViewController: UIViewController {
 	}
 	
 	func createNewUserButtonPressed() {
+		
+		createNewUserButton.buttonBounce()
 		//if phone number is valid
 		
 		let userRef = FIRDatabase.database().reference().child("QuoteUser")
@@ -118,6 +120,8 @@ class LoginViewController: UIViewController {
 	}
 	
 	func loginWithPhoneNumber() {
+		
+		loginButton.buttonBounce()
 		
 		shared.currentUser = loginWithPhoneNumberTextField.text
 		goToPageMenu()
