@@ -32,6 +32,8 @@ class LoginViewController: UIViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		
+		shared.fetchValidPhoneNumbers()
 	
 		setupScene()
 
@@ -117,14 +119,24 @@ class LoginViewController: UIViewController {
 		presentViewController(verifyVC, animated: true, completion: nil)
 		
 		//goToPageMenu()
+		
+
+		
 	}
 	
 	func loginWithPhoneNumber() {
 		
+		print("log In Button Pressed")
+		
 		loginButton.buttonBounce()
 		
-		shared.currentUser = loginWithPhoneNumberTextField.text
-		goToPageMenu()
+		if shared.validPhoneNumbers.contains(loginWithPhoneNumberTextField.text!) {
+			shared.currentUser = loginWithPhoneNumberTextField.text
+			goToPageMenu()
+			
+		} else {
+			print("User does not exist")
+		}
 	}
 	
 	func goToPageMenu() {

@@ -21,9 +21,20 @@ class UserDataStore {
 	var currentUser: String!
 	
 	var posts = [QuoteQuote]()
+	var validPhoneNumbers = [String]()
 	
 	var quoteRef = FIRDatabase.database().reference().child("QuoteQuote")
 	var userRef = FIRDatabase.database().reference().child("QuoteUser")
+	
+	func fetchValidPhoneNumbers() {
+		
+		print ("fetching validPhoneNumber")
+		validPhoneNumbers.removeAll()
+		userRef.observeEventType(.ChildAdded, withBlock: { (snapshot) in
+			self.validPhoneNumbers.append(snapshot.key)
+			print (self.validPhoneNumbers)
+		})
+	}
 	
 //	func fetchPostsData(completion:() -> ()) {
 //		quoteRef.observeEventType(.ChildAdded, withBlock: { snapshot in
