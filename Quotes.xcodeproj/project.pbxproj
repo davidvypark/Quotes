@@ -27,6 +27,7 @@
 		FFCE34731D73612500CF2F69 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FFCE34721D73612500CF2F69 /* GoogleService-Info.plist */; };
 		FFCE34751D73683800CF2F69 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCE34741D73683800CF2F69 /* HomeViewController.swift */; };
 		FFCE34771D73688A00CF2F69 /* AddQuoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCE34761D73688A00CF2F69 /* AddQuoteViewController.swift */; };
+		FFF0E0241D7A1CC70021DA85 /* VerifySMSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF0E0231D7A1CC70021DA85 /* VerifySMSViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		FFCE34721D73612500CF2F69 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FFCE34741D73683800CF2F69 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		FFCE34761D73688A00CF2F69 /* AddQuoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddQuoteViewController.swift; sourceTree = "<group>"; };
+		FFF0E0231D7A1CC70021DA85 /* VerifySMSViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifySMSViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				FF8AAE7E1D765D0700331852 /* LoginViewController.swift */,
+				FFF0E0231D7A1CC70021DA85 /* VerifySMSViewController.swift */,
 				FFCE34621D71F50C00CF2F69 /* PageMenuVIewController.swift */,
 				FFCE34741D73683800CF2F69 /* HomeViewController.swift */,
 				FFCE34761D73688A00CF2F69 /* AddQuoteViewController.swift */,
@@ -293,6 +296,7 @@
 				FF8AAE6B1D73799800331852 /* QuoteQuote.swift in Sources */,
 				FFCE34751D73683800CF2F69 /* HomeViewController.swift in Sources */,
 				FF8AAE6E1D737D4900331852 /* QuoteUser.swift in Sources */,
+				FFF0E0241D7A1CC70021DA85 /* VerifySMSViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

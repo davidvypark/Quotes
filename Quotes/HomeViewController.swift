@@ -119,3 +119,11 @@ class HomeViewController: UITableViewController {
 	}
 	
 }
+
+extension HomeViewController: QuoteTableViewCellDelegate {
+	
+	func profilePictureTapped() {
+		let userProfileVC = ProfileViewController()
+		presentViewController(userProfileVC, animated: true, completion: nil)
+	}
+}

@@ -103,7 +103,10 @@ class LoginViewController: UIViewController {
 		shared.currentUser = phoneNumberTextField.text
 		print("Current User is \(shared.currentUser)")
 		
-		goToPageMenu()
+		let verifyVC = VerifySMSViewController()
+		presentViewController(verifyVC, animated: true, completion: nil)
+		
+		//goToPageMenu()
 	}
 	
 	func loginWithPhoneNumber() {

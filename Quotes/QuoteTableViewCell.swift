@@ -9,7 +9,13 @@
 import UIKit
 import SnapKit
 
+protocol QuoteTableViewCellDelegate: class {
+	func profilePictureTapped()
+}
+
 class QuoteTableViewCell: UITableViewCell {
+	
+	weak var delegate: QuoteTableViewCellDelegate?
 	
 	var profilePic = UIButton()		//change to UIButton
 	var usernameLabel = UILabel()
@@ -106,6 +112,7 @@ class QuoteTableViewCell: UITableViewCell {
 	
 	func profilePictureTapped() {
 		print ("profile picture tapped")
+		delegate?.profilePictureTapped()
 		
 	}
 	

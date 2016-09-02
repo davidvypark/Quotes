@@ -15,6 +15,7 @@ class PageMenuViewController: UIViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		view.backgroundColor = UIColor.quotesBackgroundColor()
 		
 		setupNavBar()
 		setupPages()
