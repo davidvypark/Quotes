@@ -26,8 +26,8 @@ class LoginViewController: UIViewController {
 	override func viewDidAppear(animated: Bool) {
 		super.viewDidAppear(animated)
 		
-		let verifyVC = VerifySMSViewController()
-		presentViewController(verifyVC, animated: true, completion: nil)
+//		let verifyVC = VerifySMSViewController()
+//		presentViewController(verifyVC, animated: true, completion: nil)
 	}
 	
 	override func viewDidLoad() {

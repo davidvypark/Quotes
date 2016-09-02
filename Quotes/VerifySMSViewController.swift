@@ -13,6 +13,8 @@ class VerifySMSViewController: UIViewController {
 	let codeTextField = UITextField()
 	let statusLabel = UILabel()
 	let verifyButton = UIButton()
+	let tryAgainTextField = UITextField()
+	let tryAgainLabel = UILabel()
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -59,6 +61,7 @@ class VerifySMSViewController: UIViewController {
 		codeTextField.font = UIFont(name: Constants.basicFont, size: 35)
 		codeTextField.textAlignment = .Center
 		codeTextField.keyboardType = .NumberPad
+		// need to implement the thing where there is a number limit
 	
 	}
 	
@@ -66,6 +69,21 @@ class VerifySMSViewController: UIViewController {
 		
 		verifyButton.buttonBounce()
 		print("Verify Button Pressed")
+		
+		//if code is correct
+		
+//		let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//		let naviVC = storyboard.instantiateViewControllerWithIdentifier("NavigationVC") as! UINavigationController
+//		let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+//		appDelegate.window?.rootViewController = naviVC
+		
+		// set stored.currentUser to the phoneNumber and create a new user in firebase
+		
+		//else
+		
+		//StatusLabel.text = incorrect code
+		
+		
 		
 	}
 

@@ -91,6 +91,8 @@ class AddQuoteViewController: UIViewController, UITextViewDelegate {
 
 	func quoteItPressed() {
 		
+		quoteItButton.buttonBounce()
+		
 		if (textBox.text.isEmpty) {
 			let alertController = UIAlertController(title: "Oops", message: "Please write a quote", preferredStyle: .Alert)
 			let OKAction = UIAlertAction(title: "OK", style: .Default, handler: { (action) in })
@@ -114,6 +116,7 @@ class AddQuoteViewController: UIViewController, UITextViewDelegate {
 	}
 	
 	func resetButtonPressed() {
+		resetButton.buttonBounce()
 		textBox.text = ""
 		charCountLabel.text = "300"
 	}
