@@ -56,8 +56,10 @@ class VerifySMSViewController: UIViewController {
 		codeTextField.layer.cornerRadius = view.frame.height / 40
 		codeTextField.layer.borderWidth = 1
 		codeTextField.layer.borderColor = UIColor.quotesBorderColor().CGColor
-		
-		
+		codeTextField.font = UIFont(name: Constants.basicFont, size: 35)
+		codeTextField.textAlignment = .Center
+		codeTextField.keyboardType = .NumberPad
+	
 	}
 	
 	func verifyButtonPressed() {

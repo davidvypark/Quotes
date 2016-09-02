@@ -87,6 +87,8 @@ class ProfileHeaderCell: UITableViewCell {
 	}
 	
 	func logoutButtonPressed() {
+		
+		logoutButton.buttonBounce()
 		delegate?.logoutButtonPressed()
 	}
 	
