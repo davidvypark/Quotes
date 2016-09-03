@@ -20,6 +20,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	
 	func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 		
+		let window = self.window!
+		let backgroundView = UIView()
+		backgroundView.backgroundColor = UIColor.quotesBackgroundColor()
+		window.addSubview(backgroundView)
 		
 		return true
 	}

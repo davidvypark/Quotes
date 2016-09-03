@@ -144,7 +144,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 			make.height.equalTo(view.snp_height).dividedBy(20)
 		}
 		createNewUserButton.setTitle("Create New User", forState: .Normal)
-		createNewUserButton.backgroundColor = UIColor.belizeHoleColor()
+		createNewUserButton.backgroundColor = UIColor.emeraldColor()
 		createNewUserButton.addTarget(self, action: #selector(createNewUserButtonPressed), forControlEvents: .TouchUpInside)
 		createNewUserButton.layer.cornerRadius = view.frame.height / 36
 	
@@ -178,17 +178,32 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 	func createNewUserButtonPressed() {
 		
 		createNewUserButton.buttonBounce()
-		//if phone number is valid
 		
-		let userRef = FIRDatabase.database().reference().child("QuoteUser")
-		let newUserRef = userRef.child(phoneNumberTextField.text!)
-		newUserRef.child("name").setValue(firstNameField.text! + " " + lastNameField.text!)
-		
-		shared.currentUser = phoneNumberTextField.text
-		print("Current User is \(shared.currentUser)")
-		
-		let verifyVC = VerifySMSViewController()
-		presentViewController(verifyVC, animated: true, completion: nil)
+		if (phoneNumberTextField.text?.characters.count != 10) {
+			
+			let alertController = UIAlertController(title: "Oops", message: "please enter a valid phone number", preferredStyle: .Alert)
+			let OKAction = UIAlertAction(title: "OK", style: .Default, handler: { (action) in })
+			alertController.addAction(OKAction)
+			
+			presentViewController(alertController, animated: true, completion: nil)
+			
+		} else if (shared.validPhoneNumbers.contains(phoneNumberTextField.text!)){
+			
+			let alertController = UIAlertController(title: "Huh?", message: "that phone number already exists", preferredStyle: .Alert)
+			let OKAction = UIAlertAction(title: "OK", style: .Default, handler: { (action) in })
+			alertController.addAction(OKAction)
+			
+		} else {
+			let userRef = FIRDatabase.database().reference().child("QuoteUser")
+			let newUserRef = userRef.child(phoneNumberTextField.text!)
+			newUserRef.child("name").setValue(firstNameField.text! + " " + lastNameField.text!)
+			
+			shared.currentUser = phoneNumberTextField.text
+			print("Current User is \(shared.currentUser)")
+			
+			let verifyVC = VerifySMSViewController()
+			presentViewController(verifyVC, animated: true, completion: nil)
+		}
 		
 		//goToPageMenu()
 		
@@ -205,7 +220,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 			goToPageMenu()
 			
 		} else {
-			print("User does not exist")
+			
+			let alertController = UIAlertController(title: "Huh?", message: "That user does not exist. Please make a new account", preferredStyle: .Alert)
+			let OKAction = UIAlertAction(title: "OK", style: .Default, handler: { (action) in })
+			alertController.addAction(OKAction)
+			
+			presentViewController(alertController, animated: true, completion: nil)
 		}
 	}
 	
