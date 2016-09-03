@@ -37,6 +37,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 		super.viewDidLoad()
 		
 		loginWithPhoneNumberTextField.delegate = self
+		phoneNumberTextField.delegate = self
 		shared.fetchValidPhoneNumbers()
 	
 		setupScene()
@@ -44,11 +45,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 	
 	func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
 		
-		if(textField == loginWithPhoneNumberTextField) {
+		print(textField)
+		if(textField == phoneNumberTextField) {
+			print("first one")
 			if(textField.text!.characters.count - range.length + string.characters.count > 10) {
 				return false
 			}
-		} else if(textField == phoneNumberTextField) {
+		} else if(textField == loginWithPhoneNumberTextField) {
+			print("second one")
 			if(textField.text!.characters.count - range.length + string.characters.count > 10) {
 				return false
 			}
@@ -60,7 +64,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 		
 		view.backgroundColor = UIColor.peterRiverColor()
 		let textFieldColor = UIColor.peterRiverColor()
-		let buttonColor = UIColor.blueColor()
 		let borderColor = UIColor.whiteColor().CGColor
 		let logoImage = UIImage(named: "quoteBook")
 		let cornerRadius = CGFloat(10.0)
