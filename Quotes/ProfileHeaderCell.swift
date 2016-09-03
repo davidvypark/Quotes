@@ -66,7 +66,7 @@ class ProfileHeaderCell: UITableViewCell {
 			make.centerY.equalTo(self.snp_centerY).dividedBy(3.5)
 			make.width.equalTo(self.snp_width)
 		}
-		usernameLabel.text = "DAVID"
+		usernameLabel.text = shared.userDataDict[shared.currentUser]!["name"] as? String
 		usernameLabel.textAlignment = .Center
 		usernameLabel.font = UIFont(name: Constants.headerFont, size: 25)
 		usernameLabel.textColor = UIColor.peterRiverColor()
