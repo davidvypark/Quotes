@@ -11,7 +11,7 @@ import SnapKit
 import Firebase
 import FirebaseDatabase
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
 	
 	let shared = UserDataStore.sharedDataStore
 	
@@ -37,6 +37,14 @@ class LoginViewController: UIViewController {
 	
 		setupScene()
 
+	}
+	
+	func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+		if (textField == phoneNumberTextField) {
+			if (textField.text!.characters.count = range.length + string.characters.count > 10) {
+				return false
+			}
+		}
 	}
 
 	func setupScene() {
