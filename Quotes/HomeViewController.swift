@@ -89,8 +89,10 @@ class HomeViewController: UITableViewController {
 		let cell = tableView.dequeueReusableCellWithIdentifier(QuoteTableViewCell.cellIdentifier, forIndexPath: indexPath) as! QuoteTableViewCell
 		
 		let post = shared.posts[indexPath.row]
+		
+		let picture = shared.userDataDict[post.authorId]!["picture"] as! String
 
-		cell.profilePic.setImage(UIImage(named:"defaultPicture")?.circle, forState: .Normal)
+		cell.profilePic.setImage(UIImage(named:picture)?.circle, forState: .Normal)
 		cell.usernameLabel.text = post.author
 		cell.quoteBoxLabel.text = post.content
 		cell.dateLabel.text = post.date
