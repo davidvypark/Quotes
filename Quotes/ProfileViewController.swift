@@ -55,6 +55,7 @@ class ProfileViewController: UITableViewController {
 		if indexPath.row == 0 {
 			let headerCell = tableView.dequeueReusableCellWithIdentifier(ProfileHeaderCell.cellIdentifier, forIndexPath: indexPath) as! ProfileHeaderCell
 			headerCell.delegate = self
+			
 			return headerCell
 		} else {
 			let cell = tableView.dequeueReusableCellWithIdentifier(QuoteTableViewCell.cellIdentifier, forIndexPath: indexPath) as! QuoteTableViewCell

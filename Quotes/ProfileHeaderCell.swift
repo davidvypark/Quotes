@@ -18,8 +18,9 @@ class ProfileHeaderCell: UITableViewCell {
 	
 	weak var delegate: ProfileHeaderCellDelegate?
 	static let cellIdentifier = "ProfileHeaderCell"
+	let shared = UserDataStore.sharedDataStore
 	
-	let profilePicture = UIImageView()
+	var profilePicture = UIImageView()
 	let logoutButton = UIButton()
 	let usernameLabel = UILabel()
 	let customSC = UISegmentedControl(items: ["Said By", "Heard By"])
@@ -41,7 +42,8 @@ class ProfileHeaderCell: UITableViewCell {
 			make.height.equalTo(self.snp_width).dividedBy(3.2)
 			make.width.equalTo(self.snp_width).dividedBy(3.2)
 		}
-		profilePicture.image = UIImage(named: "profilePic")?.circle
+		let picture = shared.userDataDict[shared.currentUser]!["picture"] as! String
+		profilePicture.image = UIImage(named: picture)?.circle
 		
 		addSubview(logoutButton)
 		logoutButton.snp_makeConstraints { (make) in
