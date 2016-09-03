@@ -91,7 +91,6 @@ class HomeViewController: UITableViewController {
 		let post = shared.posts[indexPath.row]
 		
 		let picture = shared.userDataDict[post.authorId]!["picture"] as! String
-
 		cell.profilePic.setImage(UIImage(named:picture)?.circle, forState: .Normal)
 		cell.usernameLabel.text = post.author
 		cell.quoteBoxLabel.text = post.content

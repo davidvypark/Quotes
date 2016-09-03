@@ -61,8 +61,8 @@ class ProfileViewController: UITableViewController {
 			
 			let post = postsArray[indexPath.row - 1]
 			
-			cell.profilePic.setImage(UIImage(named:"defaultPicture")?.circle, forState: .Normal)
-			//cell.profilePic.image = UIImage(named: "defaultPicture")?.circle
+			let picture = shared.userDataDict[post.authorId]!["picture"] as! String
+			cell.profilePic.setImage(UIImage(named:picture)?.circle, forState: .Normal)
 			cell.usernameLabel.text = post.author
 			cell.quoteBoxLabel.text = post.content
 			cell.dateLabel.text = post.date
