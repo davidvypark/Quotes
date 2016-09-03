@@ -175,7 +175,7 @@ class ReviewViewController: UIViewController, UITextFieldDelegate {
 		whenDayTextField.layer.borderColor = borderColor.CGColor
 		whenDayTextField.placeholder = "DD"
 		whenDayTextField.textAlignment = .Center
-		whenMonthTextField.keyboardType = .NumberPad
+		whenDayTextField.keyboardType = .NumberPad
 		
 		view.addSubview(whenYearTextField)
 		whenYearTextField.snp_makeConstraints { (make) in
