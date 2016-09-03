@@ -22,7 +22,13 @@ class PageMenuViewController: UIViewController {
 	}
 	
 	func setupNavBar() {
-		self.title = "QUOTES"
+		//self.title = "QUOTEBOOK"
+		let image = UIImage(named: "quoteBook")
+		let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+		imageView.contentMode = .ScaleAspectFit
+		imageView.image = image
+		self.navigationItem.titleView = imageView
+		
 		self.navigationController?.navigationBar.barTintColor = UIColor.peterRiverColor()
 		self.navigationController?.navigationBar.shadowImage = UIImage()
 		self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
