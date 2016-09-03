@@ -30,7 +30,7 @@ class HomeViewController: UITableViewController {
 		tableView.registerClass(QuoteTableViewCell.self, forCellReuseIdentifier: QuoteTableViewCell.cellIdentifier)
 		tableView.separatorStyle = .None
 		
-		generateTestData()
+//		generateTestData()
 		fetchPostsData()
 		
 		
@@ -108,15 +108,15 @@ class HomeViewController: UITableViewController {
 		
 	}
 	
-	func generateTestData() {
-		print("generating test data")
-		
-		testUser1 = QuoteUser(name: "David", phoneNumber: "3233233233", contacts: [])
-		testUser2 = QuoteUser(name: "Joe", phoneNumber: "2322322322", contacts: [testUser1])
-		
-		testQuote1 = QuoteQuote(authorId: "3233273655", author: testUser1.name, heardBy: [testUser2.phoneNumber!], content: "HELLO", date: "12/11/1991")
-		testQuote2 = QuoteQuote(authorId: "1112223333", author: testUser2.name, heardBy: [testUser1.phoneNumber!], content: "YOYO", date: "3/3/2005")
-	}
+//	func generateTestData() {
+//		print("generating test data")
+//		
+//		testUser1 = QuoteUser(name: "David", phoneNumber: "3233233233", contacts: [], picture:)
+//		testUser2 = QuoteUser(name: "Joe", phoneNumber: "2322322322", contacts: [testUser1])
+//		
+//		testQuote1 = QuoteQuote(authorId: "3233273655", author: testUser1.name, heardBy: [testUser2.phoneNumber!], content: "HELLO", date: "12/11/1991")
+//		testQuote2 = QuoteQuote(authorId: "1112223333", author: testUser2.name, heardBy: [testUser1.phoneNumber!], content: "YOYO", date: "3/3/2005")
+//	}
 	
 }
 

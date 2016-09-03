@@ -13,6 +13,7 @@ struct QuoteUser {
 	let name: String?
 	let phoneNumber: String?
 	let contacts: [QuoteUser]?
+	let picture: String?
 	
 }
 

@@ -22,6 +22,7 @@ class UserDataStore {
 	
 	var posts = [QuoteQuote]()
 	var validPhoneNumbers = [String]()
+	var userDataDict = Dictionary<String, AnyObject>()
 	
 	var quoteRef = FIRDatabase.database().reference().child("QuoteQuote")
 	var userRef = FIRDatabase.database().reference().child("QuoteUser")
@@ -32,9 +33,12 @@ class UserDataStore {
 		validPhoneNumbers.removeAll()
 		userRef.observeEventType(.ChildAdded, withBlock: { (snapshot) in
 			self.validPhoneNumbers.append(snapshot.key)
+			self.userDataDict[snapshot.key] = snapshot.value
+			print (self.userDataDict)
 			print (self.validPhoneNumbers)
 		})
 	}
+	
 	
 //	func fetchPostsData(completion:() -> ()) {
 //		quoteRef.observeEventType(.ChildAdded, withBlock: { snapshot in
