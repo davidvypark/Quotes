@@ -107,6 +107,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 		phoneNumberTextField.layer.borderColor = borderColor
 		phoneNumberTextField.layer.cornerRadius = cornerRadius
 		phoneNumberTextField.textColor = textColor
+		phoneNumberTextField.keyboardType = .NumberPad
 		
 		view.addSubview(lastNameField)
 		lastNameField.snp_makeConstraints { (make) in
@@ -160,6 +161,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 		loginWithPhoneNumberTextField.layer.borderColor = borderColor
 		loginWithPhoneNumberTextField.layer.cornerRadius = cornerRadius
 		loginWithPhoneNumberTextField.textColor = textColor
+		loginWithPhoneNumberTextField.keyboardType = .NumberPad
 		
 		view.addSubview(loginButton)
 		loginButton.snp_makeConstraints { (make) in
