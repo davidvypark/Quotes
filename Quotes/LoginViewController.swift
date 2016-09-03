@@ -45,14 +45,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 	
 	func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
 		
-		print(textField)
 		if(textField == phoneNumberTextField) {
-			print("first one")
 			if(textField.text!.characters.count - range.length + string.characters.count > 10) {
 				return false
 			}
 		} else if(textField == loginWithPhoneNumberTextField) {
-			print("second one")
 			if(textField.text!.characters.count - range.length + string.characters.count > 10) {
 				return false
 			}

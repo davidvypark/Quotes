@@ -61,12 +61,21 @@ class ProfileViewController: UITableViewController {
 			let cell = tableView.dequeueReusableCellWithIdentifier(QuoteTableViewCell.cellIdentifier, forIndexPath: indexPath) as! QuoteTableViewCell
 			
 			let post = postsArray[indexPath.row - 1]
+			var heardByString = ""
 			
 			let picture = shared.userDataDict[post.authorId]!["picture"] as! String
 			cell.profilePic.setImage(UIImage(named:picture)?.circle, forState: .Normal)
 			cell.usernameLabel.text = post.author
 			cell.quoteBoxLabel.text = post.content
 			cell.dateLabel.text = post.date
+			
+			for id in post.heardBy {
+				
+				heardByString.appendContentsOf(shared.userDataDict[id]!["name"] as! String)
+				heardByString.appendContentsOf(", ")
+			}
+			heardByString = heardByString.substringToIndex(heardByString.endIndex.advancedBy(-2))
+			cell.heardPersonLabel.text = heardByString
 			
 			return cell
 		}

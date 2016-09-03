@@ -76,7 +76,6 @@ class QuoteTableViewCell: UITableViewCell {
 			make.width.equalTo(quoteBoxLabel.snp_width).multipliedBy(0.65)
 		}
 		//heardPersonLabel.backgroundColor = UIColor.asbestosColor()
-		heardPersonLabel.text = "Mark Zuckerberg"
 
 		addSubview(profilePic)
 		profilePic.snp_makeConstraints { (make) in

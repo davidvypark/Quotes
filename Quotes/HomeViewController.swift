@@ -89,6 +89,7 @@ class HomeViewController: UITableViewController {
 		let cell = tableView.dequeueReusableCellWithIdentifier(QuoteTableViewCell.cellIdentifier, forIndexPath: indexPath) as! QuoteTableViewCell
 		
 		let post = shared.posts[indexPath.row]
+		var heardByString = ""
 		
 		let picture = shared.userDataDict[post.authorId]!["picture"] as! String
 		cell.profilePic.setImage(UIImage(named:picture)?.circle, forState: .Normal)
@@ -96,12 +97,14 @@ class HomeViewController: UITableViewController {
 		cell.quoteBoxLabel.text = post.content
 		cell.dateLabel.text = post.date
 		
-//		var heardPersons = [String]()
-//		for user in post.heardBy! {
-//			heardPersons.append(user.phoneNumber!)
-//		}
-//		cell.heardPersonLabel.text = heardPersons.joinWithSeparator(", ")
-	
+		for id in post.heardBy {
+			
+			heardByString.appendContentsOf(shared.userDataDict[id]!["name"] as! String)
+			heardByString.appendContentsOf(", ")
+		}
+		heardByString = heardByString.substringToIndex(heardByString.endIndex.advancedBy(-2))
+		cell.heardPersonLabel.text = heardByString
+
 		return cell
 	}
 
