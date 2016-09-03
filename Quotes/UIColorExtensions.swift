@@ -118,6 +118,10 @@ extension UIColor {
 	class func quotesBorderColor()->UIColor {
 		return UIColor(r: 235, g: 237, b: 236)
 	}
+	
+	class func softBlue()->UIColor {
+		return UIColor(r: 76, g: 179, b: 254)
+	}
 
     
 }

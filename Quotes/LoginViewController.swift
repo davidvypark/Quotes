@@ -19,6 +19,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 	let phoneNumberTextField = UITextField()
 	let firstNameField = UITextField()
 	let lastNameField = UITextField()
+	let quoteBookLogo = UIImageView()
+	let startQuotes = UIImageView()
+	let endQuotes = UIImageView()
 	
 	let loginWithPhoneNumberTextField = UITextField()
 	let loginButton = UIButton()
@@ -54,15 +57,56 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 	}
 
 	func setupScene() {
+		
+		view.backgroundColor = UIColor.peterRiverColor()
+		let textFieldColor = UIColor.peterRiverColor()
+		let buttonColor = UIColor.blueColor()
+		let borderColor = UIColor.whiteColor().CGColor
+		let logoImage = UIImage(named: "quoteBook")
+		let cornerRadius = CGFloat(10.0)
+		let textColor = UIColor.whiteColor()
+		let borderWidth = CGFloat(2)
+		
+		view.addSubview(quoteBookLogo)
+		quoteBookLogo.snp_makeConstraints { (make) in
+			make.width.equalTo(view.snp_width)
+			make.centerY.equalTo(view.snp_centerY).multipliedBy(1.5)
+			make.centerX.equalTo(view.snp_centerX)
+			make.height.equalTo(view.snp_width).dividedBy(2.575)
+		}
+		quoteBookLogo.image = logoImage
+		
+		view.addSubview(startQuotes)
+		startQuotes.snp_makeConstraints { (make) in
+			make.left.equalTo(view.snp_left).offset(20)
+			make.top.equalTo(view.snp_top).offset(20)
+			make.width.equalTo(view.snp_width).dividedBy(8)
+			make.height.equalTo(view.snp_width).dividedBy(8)
+		}
+		startQuotes.image = UIImage(named: "startQuotes")
+		
+		view.addSubview(endQuotes)
+		endQuotes.snp_makeConstraints { (make) in
+			make.right.equalTo(view.snp_right).offset(-20)
+			make.bottom.equalTo(quoteBookLogo.snp_top).offset(-20)
+			make.width.equalTo(startQuotes.snp_width)
+			make.height.equalTo(startQuotes.snp_height)
+		}
+		endQuotes.image = UIImage(named: "endQuotes")
+		
 		view.addSubview(phoneNumberTextField)
 		phoneNumberTextField.snp_makeConstraints { (make) in
 			make.centerY.equalTo(view.snp_centerY).dividedBy(1.5)
 			make.centerX.equalTo(view.snp_centerX)
-			make.width.equalTo(view.snp_width).multipliedBy(0.35)
+			make.width.equalTo(view.snp_width).multipliedBy(0.5)
 			make.height.equalTo(view.snp_height).dividedBy(20)
 		}
 		phoneNumberTextField.placeholder = "(###) ###-####"
-		phoneNumberTextField.backgroundColor = UIColor.quotesBorderColor()
+		phoneNumberTextField.backgroundColor = textFieldColor
+		phoneNumberTextField.layer.borderWidth = borderWidth
+		phoneNumberTextField.layer.borderColor = borderColor
+		phoneNumberTextField.layer.cornerRadius = cornerRadius
+		phoneNumberTextField.textColor = textColor
 		
 		view.addSubview(lastNameField)
 		lastNameField.snp_makeConstraints { (make) in
@@ -71,8 +115,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 			make.height.equalTo(phoneNumberTextField.snp_height)
 			make.bottom.equalTo(phoneNumberTextField.snp_top).offset(-20)
 		}
-		lastNameField.backgroundColor = UIColor.quotesBorderColor()
+		lastNameField.backgroundColor = textFieldColor
 		lastNameField.placeholder = " Last Name"
+		lastNameField.layer.borderWidth = borderWidth
+		lastNameField.layer.borderColor = borderColor
+		lastNameField.layer.cornerRadius = cornerRadius
+		lastNameField.textColor = textColor
 		
 		view.addSubview(firstNameField)
 		firstNameField.snp_makeConstraints { (make) in
@@ -81,8 +129,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 			make.height.equalTo(lastNameField.snp_height)
 			make.bottom.equalTo(lastNameField.snp_top).offset(-20)
 		}
-		firstNameField.backgroundColor = UIColor.quotesBorderColor()
+		firstNameField.backgroundColor = textFieldColor
 		firstNameField.placeholder = " First Name"
+		firstNameField.layer.borderWidth = borderWidth
+		firstNameField.layer.borderColor = borderColor
+		firstNameField.layer.cornerRadius = cornerRadius
+		firstNameField.textColor = textColor
 		
 		view.addSubview(createNewUserButton)
 		createNewUserButton.snp_makeConstraints { (make) in
@@ -92,7 +144,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 			make.height.equalTo(view.snp_height).dividedBy(20)
 		}
 		createNewUserButton.setTitle("Create New User", forState: .Normal)
-		createNewUserButton.backgroundColor = UIColor.peterRiverColor()
+		createNewUserButton.backgroundColor = buttonColor
 		createNewUserButton.addTarget(self, action: #selector(createNewUserButtonPressed), forControlEvents: .TouchUpInside)
 	
 		view.addSubview(loginWithPhoneNumberTextField)
@@ -101,8 +153,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 			make.center.equalTo(view.snp_center)
 			make.height.equalTo(createNewUserButton.snp_height)
 		}
-		loginWithPhoneNumberTextField.backgroundColor = UIColor.quotesBorderColor()
+		loginWithPhoneNumberTextField.backgroundColor = textFieldColor
 		loginWithPhoneNumberTextField.placeholder = "(###) ### #####"
+		loginWithPhoneNumberTextField.layer.borderWidth = borderWidth
+		loginWithPhoneNumberTextField.layer.borderColor = borderColor
+		loginWithPhoneNumberTextField.layer.cornerRadius = cornerRadius
+		loginWithPhoneNumberTextField.textColor = textColor
 		
 		view.addSubview(loginButton)
 		loginButton.snp_makeConstraints { (make) in
@@ -111,7 +167,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 			make.centerX.equalTo(loginWithPhoneNumberTextField.snp_centerX)
 			make.top.equalTo(loginWithPhoneNumberTextField.snp_bottom).offset(20)
 		}
-		loginButton.backgroundColor = UIColor.peterRiverColor()
+		loginButton.backgroundColor = buttonColor
 		loginButton.setTitle("LOGIN", forState: .Normal)
 		loginButton.addTarget(self, action: #selector(loginWithPhoneNumber), forControlEvents: .TouchUpInside)
 		
@@ -133,8 +189,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 		presentViewController(verifyVC, animated: true, completion: nil)
 		
 		//goToPageMenu()
-		
-
 		
 	}
 	
