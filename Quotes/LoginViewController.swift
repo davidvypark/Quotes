@@ -33,18 +33,24 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
+		loginWithPhoneNumberTextField.delegate = self
 		shared.fetchValidPhoneNumbers()
 	
 		setupScene()
-
 	}
 	
 	func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-		if (textField == phoneNumberTextField) {
-			if (textField.text!.characters.count = range.length + string.characters.count > 10) {
+		
+		if(textField == loginWithPhoneNumberTextField) {
+			if(textField.text!.characters.count - range.length + string.characters.count > 10) {
+				return false
+			}
+		} else if(textField == phoneNumberTextField) {
+			if(textField.text!.characters.count - range.length + string.characters.count > 10) {
 				return false
 			}
 		}
+		return true
 	}
 
 	func setupScene() {
