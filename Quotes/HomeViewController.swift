@@ -108,7 +108,7 @@ class HomeViewController: UITableViewController {
 			heardByString.appendContentsOf(", ")
 		}
 		print (post.heardBy)
-		//heardByString = heardByString.substringToIndex(heardByString.endIndex.advancedBy(-2))
+		heardByString = heardByString.substringToIndex(heardByString.endIndex.advancedBy(-2))
 		cell.heardPersonLabel.text = heardByString
 
 		return cell
