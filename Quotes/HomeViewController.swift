@@ -65,12 +65,15 @@ class HomeViewController: UITableViewController {
 			if let dict = snapshot.value as? [String: AnyObject] {
 				let authorId = dict["authorId"] as! String
 				let author = dict["author"] as! String
-				let heardBy = dict["heardBy"] as! [String]
 				let content = dict["content"] as! String
 				let date = dict["date"] as! String
+				let heardBy = dict["heardBy"] as! NSArray			//Still crashing here
+					
+				print (heardBy)
+				print ("after")
 				
 				
-				self.shared.posts.insert((QuoteQuote(authorId: authorId, author: author, heardBy: heardBy, content: content, date: date)), atIndex: 0)
+				self.shared.posts.insert((QuoteQuote(authorId: authorId, author: author, heardBy: heardBy as? [String], content: content, date: date)), atIndex: 0)
 				self.tableView.reloadData()
 			}
 		})
@@ -91,6 +94,8 @@ class HomeViewController: UITableViewController {
 		let post = shared.posts[indexPath.row]
 		var heardByString = ""
 		
+		print(post)
+		
 		let picture = shared.userDataDict[post.authorId]!["picture"] as! String
 		cell.profilePic.setImage(UIImage(named:picture)?.circle, forState: .Normal)
 		cell.usernameLabel.text = post.author
@@ -99,10 +104,11 @@ class HomeViewController: UITableViewController {
 		
 		for id in post.heardBy {
 			
-			heardByString.appendContentsOf(shared.userDataDict[id]!["name"] as! String)
+			heardByString.appendContentsOf(shared.userDataDict[id]?["name"] as! String)
 			heardByString.appendContentsOf(", ")
 		}
-		heardByString = heardByString.substringToIndex(heardByString.endIndex.advancedBy(-2))
+		print (post.heardBy)
+		//heardByString = heardByString.substringToIndex(heardByString.endIndex.advancedBy(-2))
 		cell.heardPersonLabel.text = heardByString
 
 		return cell
@@ -115,11 +121,11 @@ class HomeViewController: UITableViewController {
 //	func generateTestData() {
 //		print("generating test data")
 //		
-//		testUser1 = QuoteUser(name: "David", phoneNumber: "3233233233", contacts: [], picture:)
-//		testUser2 = QuoteUser(name: "Joe", phoneNumber: "2322322322", contacts: [testUser1])
+//		testUser1 = QuoteUser(name: "David", phoneNumber: "3233233233", contacts: [], picture: "defaultPicture")
+//		testUser2 = QuoteUser(name: "Joe", phoneNumber: "2322322322", contacts: [testUser1], picture: "defaultPicture")
 //		
-//		testQuote1 = QuoteQuote(authorId: "3233273655", author: testUser1.name, heardBy: [testUser2.phoneNumber!], content: "HELLO", date: "12/11/1991")
-//		testQuote2 = QuoteQuote(authorId: "1112223333", author: testUser2.name, heardBy: [testUser1.phoneNumber!], content: "YOYO", date: "3/3/2005")
+//		testQuote1 = QuoteQuote(authorId: "3233273655", author: testUser1.name, heardBy: [testUser2.phoneNumber!, "1111111111"], content: "HELLO", date: "12/11/1991")
+//		testQuote2 = QuoteQuote(authorId: "1112223333", author: testUser2.name, heardBy: [testUser1.phoneNumber!, "1111111111"], content: "YOYO", date: "3/3/2005")
 //	}
 	
 }
