@@ -29,6 +29,7 @@ class HomeViewController: UITableViewController {
 		view.backgroundColor = UIColor.quotesBackgroundColor()
 		tableView.registerClass(QuoteTableViewCell.self, forCellReuseIdentifier: QuoteTableViewCell.cellIdentifier)
 		tableView.separatorStyle = .None
+		tableView.allowsSelection = false
 		
 //		generateTestData()
 		fetchPostsData()

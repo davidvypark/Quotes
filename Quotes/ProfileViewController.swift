@@ -27,6 +27,7 @@ class ProfileViewController: UITableViewController {
 		
 		filterQuotePosts()
 		
+		tableView.allowsSelection = false
 		tableView.separatorStyle = .None
 		tableView.registerClass(QuoteTableViewCell.self, forCellReuseIdentifier: QuoteTableViewCell.cellIdentifier)
 		tableView.registerClass(ProfileHeaderCell.self, forCellReuseIdentifier: ProfileHeaderCell.cellIdentifier)
