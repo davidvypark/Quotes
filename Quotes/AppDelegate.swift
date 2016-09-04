@@ -24,6 +24,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		let backgroundView = UIView()
 		backgroundView.backgroundColor = UIColor.quotesBackgroundColor()
 		window.addSubview(backgroundView)
+		backgroundView.snp_makeConstraints { (make) in
+			make.edges.equalTo(window.snp_edges)
+		}
 		
 		return true
 	}
