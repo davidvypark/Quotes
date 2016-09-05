@@ -125,11 +125,10 @@ class ReviewViewController: UIViewController, UITextFieldDelegate {
 		
 		print("todayButtonPressed")
 		
-		let month = String(today.month())
+		todayButton.buttonBounce()
 		
-		whenMonthTextField.text = month
+		whenMonthTextField.text = String(today.month())
 		whenDayTextField.text = String(today.day())
-	
 		whenYearTextField.text = String(today.year())
 		
 		
