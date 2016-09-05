@@ -23,8 +23,9 @@ class ReviewViewController: UIViewController, UITextFieldDelegate {
 	var whenMonthTextField = UITextField()
 	var whenDayTextField = UITextField()
 	var whenYearTextField = UITextField()
-
 	var quoteLabel = UILabel()
+	var todayButton = UIButton()
+	let today = NSDate()
 	
 	var quoteText: String?
 	
@@ -118,6 +119,20 @@ class ReviewViewController: UIViewController, UITextFieldDelegate {
 			}
 		}
 		return true
+	}
+	
+	func todayButtonPressed() {
+		
+		print("todayButtonPressed")
+		
+		let month = String(today.month())
+		
+		whenMonthTextField.text = month
+		whenDayTextField.text = String(today.day())
+	
+		whenYearTextField.text = String(today.year())
+		
+		
 	}
 	
 	func setupScene() {
@@ -238,6 +253,19 @@ class ReviewViewController: UIViewController, UITextFieldDelegate {
 		//whenLabel.backgroundColor = UIColor.magentaColor()
 		whenLabel.textColor = labelColor
 		whenLabel.font = UIFont(name: labelFont, size: whenLabel.font.pointSize)
+		
+		view.addSubview(todayButton)
+		todayButton.snp_makeConstraints { (make) in
+			make.left.equalTo(whenMonthTextField.snp_left)
+			make.top.equalTo(whenMonthTextField.snp_bottom).offset(10)
+			make.right.equalTo(whenYearTextField.snp_right)
+			make.height.equalTo(whenMonthTextField.snp_height)
+		}
+		todayButton.setTitle("Today's Date", forState: .Normal)
+		todayButton.addTarget(self, action: #selector(todayButtonPressed), forControlEvents: .TouchUpInside)
+		todayButton.backgroundColor = UIColor.peterRiverColor()
+		todayButton.layer.borderWidth = 2
+		todayButton.layer.borderColor = UIColor.whiteColor().CGColor
 		
 	}
 

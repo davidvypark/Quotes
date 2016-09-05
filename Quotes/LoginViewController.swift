@@ -36,12 +36,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		let currentDate = NSDate()
-		
-		print(currentDate.hour())
-		print(currentDate.minute())
-		print(currentDate.day())
-		
 		loginWithPhoneNumberTextField.delegate = self
 		phoneNumberTextField.delegate = self
 		shared.fetchValidPhoneNumbers()
