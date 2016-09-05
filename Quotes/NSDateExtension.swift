@@ -11,23 +11,40 @@ import Foundation
 extension NSDate {
 	
 	func hour() -> Int {
-		//Get Hour
 		let calendar = NSCalendar.currentCalendar()
 		let components = calendar.components(.Hour, fromDate: self)
 		let hour = components.hour
 		
-		//Return Hour
 		return hour
 	}
 	
 	func minute() -> Int {
-		//Get Minute
 		let calendar = NSCalendar.currentCalendar()
 		let components = calendar.components(.Minute, fromDate: self)
 		let minute = components.minute
 		
-		//Return Minute
 		return minute
+	}
+	
+	func day() -> Int {
+		let calendar = NSCalendar.currentCalendar()
+		let day = calendar.component(.Day, fromDate: self)
+		
+		return day
+	}
+	
+	func month() -> Int {
+		let calendar = NSCalendar.currentCalendar()
+		let month = calendar.component(.Month, fromDate: self)
+		
+		return month
+	}
+	
+	func year() -> Int {
+		let calendar = NSCalendar.currentCalendar()
+		let year = calendar.component(.Year, fromDate: self)
+		
+		return year
 	}
 	
 	func toShortTimeString() -> String {
