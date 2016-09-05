@@ -23,10 +23,6 @@ class HomeViewController: UITableViewController {
 	let rootRef = FIRDatabase.database().reference()
 	let quoteRef = FIRDatabase.database().reference().child("QuoteQuote")
 
-	override func viewWillAppear(animated: Bool) {
-		tableView.rowHeight = UITableViewAutomaticDimension
-	}
-	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
@@ -89,10 +85,6 @@ class HomeViewController: UITableViewController {
 	override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return shared.posts.count
 	}
-	
-//	override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-//		return (view.frame.height / 4)
-//	}
 	
 	override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 		

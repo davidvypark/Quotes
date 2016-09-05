@@ -32,6 +32,8 @@ class ProfileViewController: UITableViewController {
 		tableView.registerClass(QuoteTableViewCell.self, forCellReuseIdentifier: QuoteTableViewCell.cellIdentifier)
 		tableView.registerClass(ProfileHeaderCell.self, forCellReuseIdentifier: ProfileHeaderCell.cellIdentifier)
 		view.backgroundColor = UIColor.quotesBackgroundColor()
+		tableView.rowHeight = UITableViewAutomaticDimension
+		tableView.estimatedRowHeight = view.frame.height / 4
 		
 		postsArray = saidByArray
 	}
@@ -48,7 +50,7 @@ class ProfileViewController: UITableViewController {
 		if indexPath.row == 0 {
 			return (self.view.frame.height/2)
 		}
-		return (self.view.frame.height/3)
+		return tableView.rowHeight
 	}
 	
 	override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -78,6 +80,8 @@ class ProfileViewController: UITableViewController {
 			heardByString = heardByString.substringToIndex(heardByString.endIndex.advancedBy(-2))
 			cell.heardPersonLabel.text = heardByString
 			
+			cell.layoutIfNeeded()
+
 			return cell
 		}
 	}
