@@ -25,7 +25,7 @@ class UserDataStore {
 	var posts = [QuoteQuote]()
 	var validPhoneNumbers = [String]()
 	var userDataDict = Dictionary<String, AnyObject>()
-	var userContacts = [String]()
+	var userContacts = [String: String]()
 	
 	var quoteRef = FIRDatabase.database().reference().child("QuoteQuote")
 	var userRef = FIRDatabase.database().reference().child("QuoteUser")
@@ -95,9 +95,10 @@ class UserDataStore {
 				for contact in containerResults {
 					if (!contact.phoneNumbers.isEmpty){
 						let number = (contact.phoneNumbers[0].value as! CNPhoneNumber).valueForKey("digits") as! String
+						let name = "\(contact.givenName) \(contact.familyName)"
 						if number.characters.count > 9 {
 							let tenDigits = number.phoneNumberLength()
-							userContacts.append(tenDigits)
+							userContacts[name] = tenDigits
 						}
 					}
 				}
@@ -105,7 +106,7 @@ class UserDataStore {
 				print("Error fetching results for container")
 			}
 		}
-		print (userContacts)
+		print(userContacts)
 	}
 	
 }
