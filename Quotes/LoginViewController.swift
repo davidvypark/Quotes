@@ -41,7 +41,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 		shared.fetchValidPhoneNumbers()
 	
 		setupScene()
-		print(shared.contacts)
+		shared.fetchContacts()
 	}
 	
 	func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {

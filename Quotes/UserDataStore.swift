@@ -25,6 +25,7 @@ class UserDataStore {
 	var posts = [QuoteQuote]()
 	var validPhoneNumbers = [String]()
 	var userDataDict = Dictionary<String, AnyObject>()
+	var userContacts = [String]()
 	
 	var quoteRef = FIRDatabase.database().reference().child("QuoteQuote")
 	var userRef = FIRDatabase.database().reference().child("QuoteUser")
@@ -70,7 +71,10 @@ class UserDataStore {
 //		})
 //	}
 	
-	lazy var contacts: [CNContact] = {
+	func fetchContacts() {
+		
+		print ("fetching contacts")
+		
 		let contactStore = CNContactStore()
 		let keysToFetch = [
 			CNContactFormatter.descriptorForRequiredKeysForStyle(.FullName),
@@ -83,21 +87,25 @@ class UserDataStore {
 			print ("Error fetching containers")
 		}
 		
-		var results: [CNContact] = []
-		
 		for container in allContainers {
 			let fetchPredicate = CNContact.predicateForContactsInContainerWithIdentifier(container.identifier)
 			
 			do {
 				let containerResults = try contactStore.unifiedContactsMatchingPredicate(fetchPredicate, keysToFetch: keysToFetch)
-				results.appendContentsOf(containerResults)
+				for contact in containerResults {
+					if (!contact.phoneNumbers.isEmpty){
+						let number = (contact.phoneNumbers[0].value as! CNPhoneNumber).valueForKey("digits") as! String
+						if number.characters.count > 9 {
+							let tenDigits = number.phoneNumberLength()
+							userContacts.append(tenDigits)
+						}
+					}
+				}
 			} catch {
 				print("Error fetching results for container")
 			}
 		}
-		print("fetching contacts")
-		return results
-
-	}()
+		print (userContacts)
+	}
 	
 }
