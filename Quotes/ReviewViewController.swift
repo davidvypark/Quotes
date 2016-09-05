@@ -207,9 +207,10 @@ class ReviewViewController: UIViewController, UITextFieldDelegate {
 		
 		view.addSubview(quoteLabel)
 		quoteLabel.snp_makeConstraints { (make) in
-			make.center.equalTo(view.snp_center)
+			make.centerX.equalTo(view.snp_centerX)
 			make.height.equalTo(view.snp_height).dividedBy(6)
 			make.width.equalTo(view.snp_width).multipliedBy(0.8)
+			make.top.equalTo(todayButton.snp_bottom).offset(10)
 		}
 		quoteLabel.backgroundColor = boxColor
 		quoteLabel.lineBreakMode = .ByWordWrapping

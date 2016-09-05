@@ -52,18 +52,18 @@ class QuoteTableViewCell: UITableViewCell {
 			make.centerY.equalTo(self.snp_centerY)
 			make.centerX.equalTo(snp_centerX).multipliedBy(1.1)
 			make.width.equalTo(self.snp_width).multipliedBy(0.67)
-			make.height.equalTo(self.snp_height).dividedBy(2)		//eventually needs to be dynamic based off content
+			//make.height.equalTo(self.snp_width).dividedBy(9)		//eventually needs to be dynamic based off content
 		}
 		quoteBoxLabel.backgroundColor = UIColor.whiteColor()
 		quoteBoxLabel.lineBreakMode = .ByWordWrapping
 		quoteBoxLabel.numberOfLines = 5
 		quoteBoxLabel.font = UIFont(name: Constants.basicFont, size: quoteBoxLabel.font.pointSize)
-		//quoteBoxLabel.text = "If you want to build a ship ... teach them to yearn for the vast and endless sea."
+		quoteBoxLabel.numberOfLines = 0
 		
 		addSubview(heardByLabel)
 		heardByLabel.snp_makeConstraints { (make) in
 			make.left.equalTo(quoteBoxLabel.snp_left)
-			make.top.equalTo(quoteBoxLabel.snp_bottom).offset(5)
+			make.top.equalTo(quoteBoxLabel.snp_bottom).offset(10)
 			make.width.equalTo(quoteBoxLabel.snp_width).dividedBy(3)
 		}
 		//heardByLabel.backgroundColor = UIColor.amethystColor()
@@ -74,12 +74,15 @@ class QuoteTableViewCell: UITableViewCell {
 			make.left.equalTo(heardByLabel.snp_right).offset(5)
 			make.top.equalTo(heardByLabel.snp_top)
 			make.width.equalTo(quoteBoxLabel.snp_width).multipliedBy(0.65)
+			make.bottom.equalTo(self.snp_bottom).offset(-20)
 		}
 		//heardPersonLabel.backgroundColor = UIColor.asbestosColor()
+		heardPersonLabel.numberOfLines = 0
+		heardPersonLabel.lineBreakMode = .ByWordWrapping
 
 		addSubview(profilePic)
 		profilePic.snp_makeConstraints { (make) in
-			make.centerY.equalTo(quoteBoxLabel.snp_top)
+			make.top.equalTo(self.snp_top).offset(20)
 			make.centerX.equalTo(self.snp_centerX).dividedBy(4.5)
 			make.width.equalTo(self.snp_width).dividedBy(9)
 			make.height.equalTo(self.snp_width).dividedBy(9)
@@ -113,6 +116,11 @@ class QuoteTableViewCell: UITableViewCell {
 		print ("profile picture tapped")
 		delegate?.profilePictureTapped()
 		
+	}
+	
+	func setupcCelll() {
+		
+		addSubview(profilePic)
 	}
 	
 }

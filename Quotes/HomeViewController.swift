@@ -22,6 +22,7 @@ class HomeViewController: UITableViewController {
 	
 	let rootRef = FIRDatabase.database().reference()
 	let quoteRef = FIRDatabase.database().reference().child("QuoteQuote")
+
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -30,6 +31,7 @@ class HomeViewController: UITableViewController {
 		tableView.registerClass(QuoteTableViewCell.self, forCellReuseIdentifier: QuoteTableViewCell.cellIdentifier)
 		tableView.separatorStyle = .None
 		tableView.allowsSelection = false
+		tableView.estimatedRowHeight = view.frame.height / 4
 		
 //		generateTestData()
 		fetchPostsData()
@@ -68,7 +70,7 @@ class HomeViewController: UITableViewController {
 				let author = dict["author"] as! String
 				let content = dict["content"] as! String
 				let date = dict["date"] as! String
-				let heardBy = dict["heardBy"] as! NSArray			//Still crashing here
+				let heardBy = dict["heardBy"] as! NSArray			
 					
 				print (heardBy)
 				print ("after")
@@ -84,9 +86,9 @@ class HomeViewController: UITableViewController {
 		return shared.posts.count
 	}
 	
-	override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-		return (view.frame.height / 4)
-	}
+//	override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+//		return (view.frame.height / 4)
+//	}
 	
 	override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 		
