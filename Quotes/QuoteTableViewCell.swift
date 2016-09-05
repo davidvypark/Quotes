@@ -52,7 +52,7 @@ class QuoteTableViewCell: UITableViewCell {
 			make.centerY.equalTo(self.snp_centerY)
 			make.centerX.equalTo(snp_centerX).multipliedBy(1.1)
 			make.width.equalTo(self.snp_width).multipliedBy(0.67)
-			//make.height.equalTo(self.snp_width).dividedBy(9)		//eventually needs to be dynamic based off content
+
 		}
 		quoteBoxLabel.backgroundColor = UIColor.whiteColor()
 		quoteBoxLabel.lineBreakMode = .ByWordWrapping
@@ -63,7 +63,7 @@ class QuoteTableViewCell: UITableViewCell {
 		addSubview(heardByLabel)
 		heardByLabel.snp_makeConstraints { (make) in
 			make.left.equalTo(quoteBoxLabel.snp_left)
-			make.top.equalTo(quoteBoxLabel.snp_bottom).offset(10)
+			make.top.equalTo(quoteBoxLabel.snp_bottom).offset(15)
 			make.width.equalTo(quoteBoxLabel.snp_width).dividedBy(3)
 		}
 		//heardByLabel.backgroundColor = UIColor.amethystColor()

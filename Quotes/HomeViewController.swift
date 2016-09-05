@@ -23,6 +23,9 @@ class HomeViewController: UITableViewController {
 	let rootRef = FIRDatabase.database().reference()
 	let quoteRef = FIRDatabase.database().reference().child("QuoteQuote")
 
+	override func viewWillAppear(animated: Bool) {
+		tableView.rowHeight = UITableViewAutomaticDimension
+	}
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -31,7 +34,9 @@ class HomeViewController: UITableViewController {
 		tableView.registerClass(QuoteTableViewCell.self, forCellReuseIdentifier: QuoteTableViewCell.cellIdentifier)
 		tableView.separatorStyle = .None
 		tableView.allowsSelection = false
+		tableView.rowHeight = UITableViewAutomaticDimension
 		tableView.estimatedRowHeight = view.frame.height / 4
+		
 		
 //		generateTestData()
 		fetchPostsData()
@@ -70,11 +75,10 @@ class HomeViewController: UITableViewController {
 				let author = dict["author"] as! String
 				let content = dict["content"] as! String
 				let date = dict["date"] as! String
-				let heardBy = dict["heardBy"] as! NSArray			
+				let heardBy = dict["heardBy"] as! NSArray
 					
 				print (heardBy)
 				print ("after")
-				
 				
 				self.shared.posts.insert((QuoteQuote(authorId: authorId, author: author, heardBy: heardBy as? [String], content: content, date: date)), atIndex: 0)
 				self.tableView.reloadData()
@@ -113,6 +117,8 @@ class HomeViewController: UITableViewController {
 		print (post.heardBy)
 		heardByString = heardByString.substringToIndex(heardByString.endIndex.advancedBy(-2))
 		cell.heardPersonLabel.text = heardByString
+		
+		cell.layoutIfNeeded()
 
 		return cell
 	}
