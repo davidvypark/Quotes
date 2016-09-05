@@ -14,6 +14,7 @@ import FirebaseDatabase
 
 class ReviewViewController: UIViewController, UITextFieldDelegate {
 	
+	var quoteLabel = UILabel()
 	var saidLabel = UILabel()
 	var heardLabel = UILabel()
 	var whenLabel = UILabel()
@@ -23,18 +24,22 @@ class ReviewViewController: UIViewController, UITextFieldDelegate {
 	var whenMonthTextField = UITextField()
 	var whenDayTextField = UITextField()
 	var whenYearTextField = UITextField()
-	var quoteLabel = UILabel()
+
 	var todayButton = UIButton()
 	let today = NSDate()
 	
 	var quoteText: String?
 	
 	override func viewWillAppear(animated: Bool) {
+		super.viewWillAppear(animated)
+		
 		quoteLabel.text = quoteText
 	}
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		
+		quoteLabel.text = quoteText
 		
 		self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done🖋", style: UIBarButtonItemStyle.Done, target: self, action: #selector(doneButtonPressed))
 		
@@ -78,8 +83,10 @@ class ReviewViewController: UIViewController, UITextFieldDelegate {
 				let author = "temp"
 				let content = self.quoteText
 				var heardBy = [String]()
+				let month = String(format: "%02@", self.whenMonthTextField.text!)
+				let day = String(format: "%02@", self.whenDayTextField.text!)
 				heardBy.append(self.heardTextField.text!)
-				let date = "\(self.whenMonthTextField.text!)/\(self.whenDayTextField.text!)/\(self.whenYearTextField.text!)"
+				let date = "\(month)/\(day)/\(self.whenYearTextField.text!)"
 				
 				let postData: [String: AnyObject] = ["authorId": authorId!, "author": author, "content": content!, "heardBy": heardBy, "date": date]
 				
@@ -127,8 +134,8 @@ class ReviewViewController: UIViewController, UITextFieldDelegate {
 		
 		todayButton.buttonBounce()
 		
-		whenMonthTextField.text = String(today.month())
-		whenDayTextField.text = String(today.day())
+		whenMonthTextField.text = String(format: "%02d", today.month())
+		whenDayTextField.text = String(format: "%02d", today.day())
 		whenYearTextField.text = String(today.year())
 		
 		
@@ -205,6 +212,7 @@ class ReviewViewController: UIViewController, UITextFieldDelegate {
 		whenYearTextField.textAlignment = .Center
 		whenYearTextField.keyboardType = .NumberPad
 		
+		view.addSubview(todayButton)
 		view.addSubview(quoteLabel)
 		quoteLabel.snp_makeConstraints { (make) in
 			make.centerX.equalTo(view.snp_centerX)
@@ -254,7 +262,7 @@ class ReviewViewController: UIViewController, UITextFieldDelegate {
 		whenLabel.textColor = labelColor
 		whenLabel.font = UIFont(name: labelFont, size: whenLabel.font.pointSize)
 		
-		view.addSubview(todayButton)
+		//view.addSubview(todayButton)
 		todayButton.snp_makeConstraints { (make) in
 			make.left.equalTo(whenMonthTextField.snp_left)
 			make.top.equalTo(whenMonthTextField.snp_bottom).offset(10)
