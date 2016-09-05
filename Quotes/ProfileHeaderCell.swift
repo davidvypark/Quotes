@@ -35,6 +35,7 @@ class ProfileHeaderCell: UITableViewCell {
 	
 	func setupCell() {
 		
+		
 		addSubview(profilePicture)
 		profilePicture.snp_makeConstraints { (make) in
 			make.centerX.equalTo(self.snp_centerX)
