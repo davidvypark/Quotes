@@ -10,6 +10,8 @@ import Foundation
 import UIKit
 import Firebase
 import FirebaseDatabase
+import AddressBook
+import Contacts
 
 class UserDataStore {
 	static let sharedDataStore = UserDataStore()
@@ -67,5 +69,35 @@ class UserDataStore {
 //			}
 //		})
 //	}
+	
+	lazy var contacts: [CNContact] = {
+		let contactStore = CNContactStore()
+		let keysToFetch = [
+			CNContactFormatter.descriptorForRequiredKeysForStyle(.FullName),
+			CNContactPhoneNumbersKey]
+		
+		var allContainers: [CNContainer] = []
+		do {
+			allContainers = try contactStore.containersMatchingPredicate(nil)
+		} catch {
+			print ("Error fetching containers")
+		}
+		
+		var results: [CNContact] = []
+		
+		for container in allContainers {
+			let fetchPredicate = CNContact.predicateForContactsInContainerWithIdentifier(container.identifier)
+			
+			do {
+				let containerResults = try contactStore.unifiedContactsMatchingPredicate(fetchPredicate, keysToFetch: keysToFetch)
+				results.appendContentsOf(containerResults)
+			} catch {
+				print("Error fetching results for container")
+			}
+		}
+		print("fetching contacts")
+		return results
+
+	}()
 	
 }
