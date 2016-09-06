@@ -37,10 +37,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 		super.viewDidLoad()
 		
 		loginWithPhoneNumberTextField.delegate = self
-		
 		phoneNumberTextField.delegate = self
-		
-		
+
 		shared.fetchValidPhoneNumbers()
 	
 		setupScene()
@@ -90,8 +88,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 			formattedString.appendString(remainder)
 			textField.text = formattedString as String
 			return false
-
-
 		}
 		return true
 	}
@@ -255,9 +251,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 		print("log In Button Pressed")
 		
 		loginButton.buttonBounce()
+		let digitPhoneNumberSplit = loginWithPhoneNumberTextField.text!.componentsSeparatedByCharactersInSet(NSCharacterSet.decimalDigitCharacterSet().invertedSet)
+		let digitPhoneNumber = digitPhoneNumberSplit.joinWithSeparator("")
 		
-		if shared.validPhoneNumbers.contains(loginWithPhoneNumberTextField.text!) {
-			shared.currentUser = loginWithPhoneNumberTextField.text
+		if shared.validPhoneNumbers.contains(digitPhoneNumber) {
+			shared.currentUser = digitPhoneNumber
 			goToPageMenu()
 			
 		} else {
