@@ -65,13 +65,12 @@ class ReviewViewController: UIViewController, UITextFieldDelegate, MLPAutoComple
 	
 	func doneButtonPressed() {
 		
-		if (whenMonthTextField.text == "" || whenDayTextField.text == "" || whenYearTextField.text == "") {
-			let alertController = UIAlertController(title: "Wait!", message: "Please fill out WHEN section fully", preferredStyle: .Alert)
+		if (whenMonthTextField.text == "" || whenDayTextField.text == "" || whenYearTextField.text == "" || saidTextField.text == "" || heardTextField.text == "") {
+			let alertController = UIAlertController(title: "Wait!", message: "You forgot to fill something out!", preferredStyle: .Alert)
 			let OKAction = UIAlertAction(title: "OK", style: .Default, handler: { (action) in
 			})
 			alertController.addAction(OKAction)
 			presentViewController(alertController, animated: true, completion: nil)
-			
 		} else if (Int(whenMonthTextField.text!)! > 12 || Int(whenDayTextField.text!)! > 31) {
 			let alertController = UIAlertController(title: "Huh?", message: "Please enter a valid date", preferredStyle: .Alert)
 			let OKAction = UIAlertAction(title: "OK", style: .Default, handler: { (action) in
@@ -79,6 +78,11 @@ class ReviewViewController: UIViewController, UITextFieldDelegate, MLPAutoComple
 			alertController.addAction(OKAction)
 			presentViewController(alertController, animated: true, completion: nil)
 			
+		} else if (!shared.userContacts.keys.contains(saidTextField.text!) || (!shared.userContacts.keys.contains(heardTextField.text!))){
+			let alertController = UIAlertController(title: "Who?", message: "this person does not exist in your contacts", preferredStyle: .Alert)
+			let OKAction = UIAlertAction(title: "OK", style: .Default, handler: { (action) in })
+			alertController.addAction(OKAction)
+			presentViewController(alertController, animated: true, completion: nil)
 		} else {
 			
 			let alertController = UIAlertController(title: "Create Quote?", message: "Would you like to publish a new quote?", preferredStyle: .Alert)
@@ -93,10 +97,10 @@ class ReviewViewController: UIViewController, UITextFieldDelegate, MLPAutoComple
 				let authorId = self.shared.userContacts[self.saidTextField.text!]
 				let author = self.saidTextField.text!
 				let content = self.quoteText
-				var heardBy = [self.heardTextField.text!]
+				var heardBy = [String]()
 				let month = String(format: "%02@", self.whenMonthTextField.text!)
 				let day = String(format: "%02@", self.whenDayTextField.text!)
-				heardBy.append(self.heardTextField.text!)
+				heardBy.append(self.shared.userContacts[self.heardTextField.text!]!)
 				let date = "\(month)/\(day)/\(self.whenYearTextField.text!)"
 				
 				let postData: [String: AnyObject] = ["authorId": authorId!, "author": author, "content": content!, "heardBy": heardBy, "date": date]
