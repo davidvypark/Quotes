@@ -11,16 +11,19 @@ import UIKit
 import SnapKit
 import Firebase
 import FirebaseDatabase
+import MLPAutoCompleteTextField
 
-class ReviewViewController: UIViewController, UITextFieldDelegate {
+class ReviewViewController: UIViewController, UITextFieldDelegate, MLPAutoCompleteTextFieldDelegate, MLPAutoCompleteTextFieldDataSource {
+	
+	let shared = UserDataStore.sharedDataStore
 	
 	var quoteLabel = UILabel()
 	var saidLabel = UILabel()
 	var heardLabel = UILabel()
 	var whenLabel = UILabel()
 
-	var saidTextField = UITextField()		// These might have
-	var heardTextField = UITextField()		// to be buttons
+	var saidTextField = MLPAutoCompleteTextField()
+	var heardTextField = MLPAutoCompleteTextField()		// to be buttons
 	var whenMonthTextField = UITextField()
 	var whenDayTextField = UITextField()
 	var whenYearTextField = UITextField()
@@ -47,9 +50,17 @@ class ReviewViewController: UIViewController, UITextFieldDelegate {
 		whenDayTextField.delegate = self
 		whenYearTextField.delegate = self
 		
+		saidTextField.delegate = self
+		saidTextField.autoCompleteDataSource = self
+		heardTextField.delegate = self
+		heardTextField.autoCompleteDataSource = self
+		
 		view.backgroundColor = UIColor.quotesBackgroundColor()
 		setupScene()
+	}
 	
+	func autoCompleteTextField(textField: MLPAutoCompleteTextField!, possibleCompletionsForString string: String!) -> [AnyObject]! {
+		return Array(shared.userContacts.keys)
 	}
 	
 	func doneButtonPressed() {
@@ -79,10 +90,10 @@ class ReviewViewController: UIViewController, UITextFieldDelegate {
 				
 				let newQuoteRef = FIRDatabase.database().reference().child("QuoteQuote").childByAutoId()
 				
-				let authorId = self.saidTextField.text
-				let author = "temp"
+				let authorId = self.shared.userContacts[self.saidTextField.text!]
+				let author = self.saidTextField.text!
 				let content = self.quoteText
-				var heardBy = [String]()
+				var heardBy = [self.heardTextField.text!]
 				let month = String(format: "%02@", self.whenMonthTextField.text!)
 				let day = String(format: "%02@", self.whenDayTextField.text!)
 				heardBy.append(self.heardTextField.text!)
@@ -137,7 +148,6 @@ class ReviewViewController: UIViewController, UITextFieldDelegate {
 		whenMonthTextField.text = String(format: "%02d", today.month())
 		whenDayTextField.text = String(format: "%02d", today.day())
 		whenYearTextField.text = String(today.year())
-		
 		
 	}
 	
