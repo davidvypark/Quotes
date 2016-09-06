@@ -28,9 +28,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 	
 	override func viewDidAppear(animated: Bool) {
 		super.viewDidAppear(animated)
-		
-//		let verifyVC = VerifySMSViewController()
-//		presentViewController(verifyVC, animated: true, completion: nil)
+
 	}
 	
 	override func viewDidLoad() {
@@ -241,8 +239,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 			let verifyVC = VerifySMSViewController()
 			presentViewController(verifyVC, animated: true, completion: nil)
 		}
-		
-		//goToPageMenu()
+
 		
 	}
 	

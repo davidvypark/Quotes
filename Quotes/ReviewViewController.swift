@@ -107,12 +107,6 @@ class ReviewViewController: UIViewController, UITextFieldDelegate, MLPAutoComple
 				
 				newQuoteRef.setValue(postData)
 				
-//				newQuoteRef.child("authorId").setValue(authorId)
-//				newQuoteRef.child("author").setValue(author)
-//				newQuoteRef.child("content").setValue(content)
-//				newQuoteRef.child("heardBy").setValue(heardBy)
-//				newQuoteRef.child("date").setValue(date)
-				
 				self.navigationController?.popViewControllerAnimated(true)
 			}
 			

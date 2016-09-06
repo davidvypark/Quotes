@@ -42,35 +42,6 @@ class UserDataStore {
 		})
 	}
 	
-	
-//	func fetchPostsData(completion:() -> ()) {
-//		quoteRef.observeEventType(.ChildAdded, withBlock: { snapshot in
-//			print(snapshot)
-//			if let dict = snapshot.value as? [String: AnyObject] {
-//				let authorId = dict["authorId"] as! String
-//				let author = dict["author"] as! String
-//				let heardBy = dict["heardBy"] as! [String]
-//				let content = dict["content"] as! String
-//				let date = dict["date"] as! String			//This should be a String
-//				
-//				self.posts.append(QuoteQuote(authorId: authorId, author: author, heardBy: heardBy, content: content, date: date))
-//			}
-//			print("These are posts \(self.posts)")
-//		})
-//	}
-	
-//	func fetchUsersData() {
-//		userRef.observeEventType(.ChildAdded, withBlock: { snapshot in
-//			if let dict = snapshot.value as? [String: AnyObject] {
-//				let userId = dict["userId"] as! String
-//				let name = dict["name"] as! String
-//				let phoneNumber = dict["phoneNumber"] as! String
-//				let contactIds = dict["contacts"] as! [String]
-//				
-//			}
-//		})
-//	}
-	
 	func fetchContacts() {
 		
 		print ("fetching contacts")
