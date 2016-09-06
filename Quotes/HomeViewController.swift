@@ -35,6 +35,7 @@ class HomeViewController: UITableViewController {
 		tableView.estimatedRowHeight = view.frame.height / 4
 		
 		
+		addContactsToUserDataDict()
 //		generateTestData()
 		fetchPostsData { 
 			self.filterPosts()
@@ -127,6 +128,15 @@ class HomeViewController: UITableViewController {
 			}
 		}
 		print ("filtered \(filteredPosts)")
+	}
+	
+	func addContactsToUserDataDict() {
+		for contactName in shared.userContacts.keys {
+			var subDict = [String: String]()
+			subDict["name"] = contactName
+			subDict["picture"] = "defaultPicture"
+			shared.userDataDict[shared.userContacts[contactName]!] = subDict
+		}
 	}
 
 	func searchButtonPressed() {
