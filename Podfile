@@ -10,5 +10,7 @@ target 'Quotes' do
   pod 'SnapKit'
   pod 'Firebase'
   pod 'FirebaseDatabase'
+  pod 'MLPAutoCompleteTextField', '~> 1.5'
+  
 
 end

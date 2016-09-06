@@ -37,10 +37,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 		super.viewDidLoad()
 		
 		loginWithPhoneNumberTextField.delegate = self
+		
 		phoneNumberTextField.delegate = self
+		
+		
 		shared.fetchValidPhoneNumbers()
 	
 		setupScene()
+		shared.fetchContacts()
+		
 	}
 	
 	func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {

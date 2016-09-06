@@ -30,6 +30,7 @@
 		FFF0E0241D7A1CC70021DA85 /* VerifySMSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF0E0231D7A1CC70021DA85 /* VerifySMSViewController.swift */; };
 		FFF0E0261D7A225F0021DA85 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF0E0251D7A225F0021DA85 /* UIViewExtension.swift */; };
 		FFF0E0281D7D14F40021DA85 /* NSDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF0E0271D7D14F40021DA85 /* NSDateExtension.swift */; };
+		FFF0E02A1D7E2E5A0021DA85 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF0E0291D7E2E5A0021DA85 /* StringExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		FFF0E0231D7A1CC70021DA85 /* VerifySMSViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifySMSViewController.swift; sourceTree = "<group>"; };
 		FFF0E0251D7A225F0021DA85 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		FFF0E0271D7D14F40021DA85 /* NSDateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtension.swift; sourceTree = "<group>"; };
+		FFF0E0291D7E2E5A0021DA85 /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 				FF8AAE701D73839600331852 /* UIImageExtension.swift */,
 				FFF0E0251D7A225F0021DA85 /* UIViewExtension.swift */,
 				FFF0E0271D7D14F40021DA85 /* NSDateExtension.swift */,
+				FFF0E0291D7E2E5A0021DA85 /* StringExtension.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -303,6 +306,7 @@
 				FFCE34611D71F50C00CF2F69 /* AppDelegate.swift in Sources */,
 				FF8AAE6B1D73799800331852 /* QuoteQuote.swift in Sources */,
 				FFCE34751D73683800CF2F69 /* HomeViewController.swift in Sources */,
+				FFF0E02A1D7E2E5A0021DA85 /* StringExtension.swift in Sources */,
 				FF8AAE6E1D737D4900331852 /* QuoteUser.swift in Sources */,
 				FFF0E0241D7A1CC70021DA85 /* VerifySMSViewController.swift in Sources */,
 			);

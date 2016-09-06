@@ -15,6 +15,7 @@ class HomeViewController: UITableViewController {
 	var parentNavigationController: UINavigationController?
 	
 	var shared = UserDataStore.sharedDataStore
+	var filteredPosts = [QuoteQuote]()
 	var testUser1: QuoteUser!				// Test
 	var testUser2: QuoteUser!				// Data
 	var testQuote1: QuoteQuote!				// To
@@ -35,7 +36,9 @@ class HomeViewController: UITableViewController {
 		
 		
 //		generateTestData()
-		fetchPostsData()
+		fetchPostsData { 
+			self.filterPosts()
+		}
 		
 		
 		//***Manually push data to FIRDatabase***
@@ -60,7 +63,7 @@ class HomeViewController: UITableViewController {
 
 	}
 	
-	func fetchPostsData() {
+	func fetchPostsData(completion: ()-> ()) {
 		print("fetching posts from database")
 		
 		self.shared.posts.removeAll()
@@ -79,18 +82,19 @@ class HomeViewController: UITableViewController {
 				self.shared.posts.insert((QuoteQuote(authorId: authorId, author: author, heardBy: heardBy as? [String], content: content, date: date)), atIndex: 0)
 				self.tableView.reloadData()
 			}
+			completion()
 		})
 	}
 	
 	override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return shared.posts.count
+		return filteredPosts.count
 	}
 	
 	override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 		
 		let cell = tableView.dequeueReusableCellWithIdentifier(QuoteTableViewCell.cellIdentifier, forIndexPath: indexPath) as! QuoteTableViewCell
 		
-		let post = shared.posts[indexPath.row]
+		let post = filteredPosts[indexPath.row]
 		var heardByString = ""
 		
 		print(post)
@@ -113,6 +117,16 @@ class HomeViewController: UITableViewController {
 		cell.layoutIfNeeded()
 
 		return cell
+	}
+	
+	func filterPosts() {
+		filteredPosts.removeAll()
+		for post in shared.posts {
+			if post.authorId == shared.currentUser || post.heardBy.contains(shared.currentUser) || shared.userContacts.values.contains(post.authorId) {
+				filteredPosts.append(post)
+			}
+		}
+		print ("filtered \(filteredPosts)")
 	}
 
 	func searchButtonPressed() {

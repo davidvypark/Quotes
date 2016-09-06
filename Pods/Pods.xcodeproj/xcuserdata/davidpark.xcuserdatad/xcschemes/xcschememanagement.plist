@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>MLPAutoCompleteTextField.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>PageMenu.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,7 +37,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>3D5417C22CC0C8612C4EDC428F20A630</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BD711AA68A4C291818BAECA1CCB71D6A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>E40F4DEBFFD9331E0ABEA850148F5DB7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E867FD7ED2D0EDF0627B2D80FC19CA3C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
