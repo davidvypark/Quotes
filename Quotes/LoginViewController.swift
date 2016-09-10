@@ -42,6 +42,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 		setupScene()
 		shared.fetchContacts()
 		
+		QuotesAPI.getQOD { (dict) in
+	
+		}
+		
 	}
 	
 	func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {

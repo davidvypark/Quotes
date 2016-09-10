@@ -109,7 +109,6 @@
 				FF8AAE781D74E3E200331852 /* ProfileHeaderCell.swift */,
 				FF8AAE7A1D750EFB00331852 /* ReviewViewController.swift */,
 				FF8AAE681D73798200331852 /* QuoteTableViewCell.swift */,
-				FFF0E0B61D8464A00021DA85 /* QuotesAPI.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -161,6 +160,7 @@
 				FF8AAE7C1D75177600331852 /* Constants.swift */,
 				FFCE34641D71F50C00CF2F69 /* Main.storyboard */,
 				FF8AAE801D766B3700331852 /* UserDataStore.swift */,
+				FFF0E0B61D8464A00021DA85 /* QuotesAPI.swift */,
 				FF8AAE671D73795300331852 /* Views */,
 				FF8AAE6C1D7379A100331852 /* Models */,
 				FF8AAE751D7383C000331852 /* Extensions */,
