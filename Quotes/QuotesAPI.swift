@@ -7,3 +7,19 @@
 //
 
 import Foundation
+
+class QuotesAPI {
+	
+	class func getQOD(completion: () -> ()) {
+		
+	}
+	
+	class func getAuthors(completion: () -> ()) {
+		
+	}
+	
+	class func getQuotesForAuthor(author: String, completion: () -> ()) {
+		
+	}
+	
+}
