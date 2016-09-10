@@ -42,9 +42,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 		setupScene()
 		shared.fetchContacts()
 		
-		QuotesAPI.getQOD { (dict) in
-	
-		}
+//		QuotesAPI.getQOD { (dict) in
+//	
+//		}
 		
 	}
 	

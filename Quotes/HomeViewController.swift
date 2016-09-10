@@ -27,6 +27,10 @@ class HomeViewController: UITableViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
+//		shared.currentUser = "3333333333"			//TEMP to bypass login screen
+//		shared.fetchValidPhoneNumbers()				//xxxxx
+//		shared.fetchContacts()						//xxxxx
+		
 		view.backgroundColor = UIColor.quotesBackgroundColor()
 		tableView.registerClass(QuoteTableViewCell.self, forCellReuseIdentifier: QuoteTableViewCell.cellIdentifier)
 		tableView.separatorStyle = .None
