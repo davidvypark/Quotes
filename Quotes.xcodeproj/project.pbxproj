@@ -31,6 +31,7 @@
 		FFF0E0261D7A225F0021DA85 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF0E0251D7A225F0021DA85 /* UIViewExtension.swift */; };
 		FFF0E0281D7D14F40021DA85 /* NSDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF0E0271D7D14F40021DA85 /* NSDateExtension.swift */; };
 		FFF0E02A1D7E2E5A0021DA85 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF0E0291D7E2E5A0021DA85 /* StringExtension.swift */; };
+		FFF0E0B71D8464A00021DA85 /* QuotesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF0E0B61D8464A00021DA85 /* QuotesAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		FFF0E0251D7A225F0021DA85 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		FFF0E0271D7D14F40021DA85 /* NSDateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtension.swift; sourceTree = "<group>"; };
 		FFF0E0291D7E2E5A0021DA85 /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		FFF0E0B61D8464A00021DA85 /* QuotesAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuotesAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 				FF8AAE781D74E3E200331852 /* ProfileHeaderCell.swift */,
 				FF8AAE7A1D750EFB00331852 /* ReviewViewController.swift */,
 				FF8AAE681D73798200331852 /* QuoteTableViewCell.swift */,
+				FFF0E0B61D8464A00021DA85 /* QuotesAPI.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -303,6 +306,7 @@
 				FF8AAE691D73798200331852 /* QuoteTableViewCell.swift in Sources */,
 				FF8AAE7D1D75177600331852 /* Constants.swift in Sources */,
 				FF8AAE661D73746200331852 /* ProfileViewController.swift in Sources */,
+				FFF0E0B71D8464A00021DA85 /* QuotesAPI.swift in Sources */,
 				FFCE34611D71F50C00CF2F69 /* AppDelegate.swift in Sources */,
 				FF8AAE6B1D73799800331852 /* QuoteQuote.swift in Sources */,
 				FFCE34751D73683800CF2F69 /* HomeViewController.swift in Sources */,
