@@ -11,6 +11,7 @@ import Foundation
 class QuotesAPI {
 	
 	class func getQOD(completion: () -> ()) {
+		let url = NSURL(string: )
 		
 	}
 	
