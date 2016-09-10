@@ -11,5 +11,6 @@ import Foundation
 struct Secrets {
 	
 	let qodURL = "http://quotes.rest/qod.json"
+	let test = "test"
 	
 }
