@@ -17,14 +17,8 @@ class TabBarController: UITabBarController {
 		setupTabs()
 	}
 	
-	func setupTabs() {
-		
-		self.tabBar.translucent = true
-		self.tabBar.backgroundColor = UIColor.clearColor()
-		self.tabBar.tintColor = UIColor.quotesRed()
-		//self.tabBar.barTintColor = UIColor.quotesTabBar()
-		
-		
+	override func viewWillLayoutSubviews() {
+		super.viewWillLayoutSubviews()
 		
 		let tabBarHeight = self.view.frame.height * 0.092
 		var tabFrame = self.tabBar.frame
@@ -32,25 +26,34 @@ class TabBarController: UITabBarController {
 		tabFrame.origin.y = self.view.frame.size.height - tabBarHeight
 		self.tabBar.frame = tabFrame
 		
+	}
+	
+	func setupTabs() {
+		
+		self.tabBar.translucent = true
+		self.tabBar.backgroundColor = UIColor.clearColor()
+		self.tabBar.tintColor = UIColor.quotesRed()
+		
 		let homeVC = HomeViewController()
-		homeVC.tabBarItem = UITabBarItem(title: nil, image: UIImage(named: "feedIcon")?.imageWithRenderingMode(.AlwaysOriginal), tag: 0)
-		homeVC.tabBarItem.image?.imageWithRenderingMode(.Automatic)
-		homeVC.tabBarItem.imageInsets = UIEdgeInsets(top: 10, left: 0, bottom: -10, right: 0)
-		homeVC.tabBarItem.selectedImage?.imageWithRenderingMode(.AlwaysOriginal)
+		homeVC.tabBarItem = UITabBarItem(title: nil, image: UIImage(named: "feedIcon")?.imageWithRenderingMode(.AlwaysOriginal) , tag: 0)
+		homeVC.tabBarItem.imageInsets = UIEdgeInsets(top: 3, left: -4, bottom: -10, right: -4)
+		
+		let homeNav = UINavigationController(rootViewController: homeVC)
+		homeNav.navigationBar.frame = CGRectMake(0, 0, view.frame.width, view.frame.height * 0.5)
+		homeNav.navigationBar.barTintColor = UIColor.whiteColor()
+		homeNav.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.quotesRed(), NSFontAttributeName: UIFont(name: Constants.headerFont, size: 22)!]
+		homeNav.navigationBar.topItem?.title = "QUOTES"
 		
 		let addQuoteVC = AddQuoteViewController()
 		addQuoteVC.tabBarItem = UITabBarItem(title: nil, image: UIImage(named: "quoteProcessIcon")?.imageWithRenderingMode(.AlwaysOriginal), tag: 1)
-		addQuoteVC.tabBarItem.image?.imageWithRenderingMode(.AlwaysTemplate)
-		addQuoteVC.tabBarItem.imageInsets = UIEdgeInsets(top: 10, left: 0, bottom: -10, right: 0)
-		addQuoteVC.tabBarItem.selectedImage?.imageWithRenderingMode(.AlwaysOriginal)
+		addQuoteVC.tabBarItem.imageInsets = UIEdgeInsets(top: 3, left: -4, bottom: -10, right: -4)
 		
 		let profileVC = ProfileViewController()
 		profileVC.tabBarItem = UITabBarItem(title: nil, image: UIImage(named: "ProfileIcon")?.imageWithRenderingMode(.AlwaysOriginal), tag: 2)
 		profileVC.tabBarItem.image?.imageWithRenderingMode(.AlwaysOriginal)
-		profileVC.tabBarItem.imageInsets = UIEdgeInsets(top: 10, left: 0, bottom: -10, right: 0)
-		profileVC.tabBarItem.selectedImage?.imageWithRenderingMode(.AlwaysOriginal)
+		profileVC.tabBarItem.imageInsets = UIEdgeInsets(top: 3, left: -4, bottom: -10, right: -4)
 		
-		let controllers = [homeVC, addQuoteVC, profileVC]
+		let controllers = [homeNav, addQuoteVC, profileVC]
 		self.viewControllers = controllers
 		self.selectedIndex = 0
 		
@@ -59,4 +62,14 @@ class TabBarController: UITabBarController {
 		
 	}
 
+}
+
+class TabBar: UITabBar {
+	
+	override func sizeThatFits(size:CGSize) -> CGSize {
+		var sizeThatFits = super.sizeThatFits(size)
+		sizeThatFits.height = 100
+		
+		return sizeThatFits
+	}
 }

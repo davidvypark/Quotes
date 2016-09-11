@@ -11,6 +11,7 @@ import UIKit
 
 struct Constants {
 	
+	//static let headerFont = "HelveticaNeue-Bold"
 	static let headerFont = "Arial-BoldMT"
 	static let basicFont = "ArialMT"
 	static let textColor = UIColor.wetAsphaltColor()

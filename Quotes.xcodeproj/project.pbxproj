@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		5E36F1F148EE724EAC70414D /* Pods_Quotes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82390D33BD8E8BBE3531BE74 /* Pods_Quotes.framework */; };
 		FF4A7AF21D84C17900AF5D30 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4A7AF11D84C17900AF5D30 /* TabBarController.swift */; };
+		FF4A7AF41D84EA1800AF5D30 /* String+BoldString.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4A7AF31D84EA1800AF5D30 /* String+BoldString.swift */; };
+		FF4A7AF61D84EA4600AF5D30 /* UILabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4A7AF51D84EA4600AF5D30 /* UILabelExtension.swift */; };
+		FF4A7AF81D8510E400AF5D30 /* CustomSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4A7AF71D8510E400AF5D30 /* CustomSearchBar.swift */; };
+		FF4A7AFA1D85120800AF5D30 /* CustomSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4A7AF91D85120800AF5D30 /* CustomSearchController.swift */; };
 		FF8AAE661D73746200331852 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8AAE651D73746200331852 /* ProfileViewController.swift */; };
 		FF8AAE691D73798200331852 /* QuoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8AAE681D73798200331852 /* QuoteTableViewCell.swift */; };
 		FF8AAE6B1D73799800331852 /* QuoteQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8AAE6A1D73799800331852 /* QuoteQuote.swift */; };
@@ -41,6 +45,10 @@
 		82390D33BD8E8BBE3531BE74 /* Pods_Quotes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Quotes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B85E1C97D30D6C522186B77A /* Pods-Quotes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Quotes.release.xcconfig"; path = "Pods/Target Support Files/Pods-Quotes/Pods-Quotes.release.xcconfig"; sourceTree = "<group>"; };
 		FF4A7AF11D84C17900AF5D30 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		FF4A7AF31D84EA1800AF5D30 /* String+BoldString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+BoldString.swift"; sourceTree = "<group>"; };
+		FF4A7AF51D84EA4600AF5D30 /* UILabelExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabelExtension.swift; sourceTree = "<group>"; };
+		FF4A7AF71D8510E400AF5D30 /* CustomSearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSearchBar.swift; sourceTree = "<group>"; };
+		FF4A7AF91D85120800AF5D30 /* CustomSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSearchController.swift; sourceTree = "<group>"; };
 		FF8AAE651D73746200331852 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		FF8AAE681D73798200331852 /* QuoteTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuoteTableViewCell.swift; sourceTree = "<group>"; };
 		FF8AAE6A1D73799800331852 /* QuoteQuote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuoteQuote.swift; sourceTree = "<group>"; };
@@ -112,6 +120,8 @@
 				FF8AAE781D74E3E200331852 /* ProfileHeaderCell.swift */,
 				FF8AAE7A1D750EFB00331852 /* ReviewViewController.swift */,
 				FF8AAE681D73798200331852 /* QuoteTableViewCell.swift */,
+				FF4A7AF71D8510E400AF5D30 /* CustomSearchBar.swift */,
+				FF4A7AF91D85120800AF5D30 /* CustomSearchController.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -133,6 +143,8 @@
 				FFF0E0251D7A225F0021DA85 /* UIViewExtension.swift */,
 				FFF0E0271D7D14F40021DA85 /* NSDateExtension.swift */,
 				FFF0E0291D7E2E5A0021DA85 /* StringExtension.swift */,
+				FF4A7AF31D84EA1800AF5D30 /* String+BoldString.swift */,
+				FF4A7AF51D84EA4600AF5D30 /* UILabelExtension.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -303,7 +315,10 @@
 				FF8AAE791D74E3E300331852 /* ProfileHeaderCell.swift in Sources */,
 				FF8AAE721D73839600331852 /* UIColorExtensions.swift in Sources */,
 				FF8AAE811D766B3700331852 /* UserDataStore.swift in Sources */,
+				FF4A7AF61D84EA4600AF5D30 /* UILabelExtension.swift in Sources */,
 				FF8AAE7B1D750EFB00331852 /* ReviewViewController.swift in Sources */,
+				FF4A7AF41D84EA1800AF5D30 /* String+BoldString.swift in Sources */,
+				FF4A7AF81D8510E400AF5D30 /* CustomSearchBar.swift in Sources */,
 				FFCE34631D71F50C00CF2F69 /* PageMenuVIewController.swift in Sources */,
 				FFF0E0281D7D14F40021DA85 /* NSDateExtension.swift in Sources */,
 				FFCE34771D73688A00CF2F69 /* AddQuoteViewController.swift in Sources */,
@@ -314,6 +329,7 @@
 				FF8AAE661D73746200331852 /* ProfileViewController.swift in Sources */,
 				FF4A7AF21D84C17900AF5D30 /* TabBarController.swift in Sources */,
 				FFF0E0B71D8464A00021DA85 /* QuotesAPI.swift in Sources */,
+				FF4A7AFA1D85120800AF5D30 /* CustomSearchController.swift in Sources */,
 				FFCE34611D71F50C00CF2F69 /* AppDelegate.swift in Sources */,
 				FF8AAE6B1D73799800331852 /* QuoteQuote.swift in Sources */,
 				FFF0E0B91D8467690021DA85 /* Secrets.swift in Sources */,
