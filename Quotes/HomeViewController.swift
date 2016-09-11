@@ -230,6 +230,7 @@ class HomeViewController: UITableViewController {
 		searchController.searchBar.resignFirstResponder()
 	}
 	
+	//this function should be used for the heardBy label as well
 	func stringVersion(numArray: [String]) -> String {
 		var stringVersion = ""
 		
@@ -303,14 +304,9 @@ extension HomeViewController: UISearchResultsUpdating {
 			let hearByFilter = filteredPosts.filter { stringVersion($0.heardBy).containsString(searchString!) }
 			
 			searchFilteredPosts = saidByFilter + hearByFilter
-			
 		}
-		
-		
 		tableView.reloadData()
 	}
-	
-	
 }
 
 
