@@ -107,6 +107,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		FF4A7AFB1D85CA4200AF5D30 /* NotUsingThese */ = {
+			isa = PBXGroup;
+			children = (
+				FF4A7AF91D85120800AF5D30 /* CustomSearchController.swift */,
+				FF4A7AF71D8510E400AF5D30 /* CustomSearchBar.swift */,
+			);
+			name = NotUsingThese;
+			sourceTree = "<group>";
+		};
 		FF8AAE671D73795300331852 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -120,8 +129,7 @@
 				FF8AAE781D74E3E200331852 /* ProfileHeaderCell.swift */,
 				FF8AAE7A1D750EFB00331852 /* ReviewViewController.swift */,
 				FF8AAE681D73798200331852 /* QuoteTableViewCell.swift */,
-				FF4A7AF71D8510E400AF5D30 /* CustomSearchBar.swift */,
-				FF4A7AF91D85120800AF5D30 /* CustomSearchController.swift */,
+				FF4A7AFB1D85CA4200AF5D30 /* NotUsingThese */,
 			);
 			name = Views;
 			sourceTree = "<group>";

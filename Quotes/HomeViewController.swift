@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 
-class HomeViewController: UITableViewController, CustomSearchControllerDelegate {
+class HomeViewController: UITableViewController {
 	
 	var parentNavigationController: UINavigationController?
 	var searchController = UISearchController(searchResultsController: nil)
@@ -232,13 +232,13 @@ class HomeViewController: UITableViewController, CustomSearchControllerDelegate 
 		searchController.searchBar.resignFirstResponder()
 	}
 	
-	func setupCustomSearchController() {
-		customSearchController = CustomSearchController(searchResultsController: self, searchBarFrame: CGRectMake(0.0, 0.0, tableView.frame.size.width, 60.0), searchBarFont: UIFont(name: Constants.basicFont, size:16)!, searchBarTextColor: UIColor.quotesRed(), searchBarTintColor: UIColor.whiteColor())
-		
-		customSearchController.customSearchBar.placeholder = "Search who said it or who heard it"
-		customSearchController.dimsBackgroundDuringPresentation = false
-		customSearchController.customDelegate = self
-	}
+//	func setupCustomSearchController() {
+//		customSearchController = CustomSearchController(searchResultsController: self, searchBarFrame: CGRectMake(0.0, 0.0, tableView.frame.size.width, 60.0), searchBarFont: UIFont(name: Constants.basicFont, size:16)!, searchBarTextColor: UIColor.quotesRed(), searchBarTintColor: UIColor.whiteColor())
+//		
+//		customSearchController.customSearchBar.placeholder = "Search who said it or who heard it"
+//		customSearchController.dimsBackgroundDuringPresentation = false
+//		customSearchController.customDelegate = self
+//	}
 	
 	func stringVersion(numArray: [String]) -> String {
 		var stringVersion = ""
@@ -252,36 +252,36 @@ class HomeViewController: UITableViewController, CustomSearchControllerDelegate 
 		return stringVersion
 	}
 	
-	func didStartSearching() {
-		isSearching = true
-		tableView.reloadData()
-	}
-	
-	func didTapOnSearchButton() {
-		if !isSearching {
-			isSearching = true
-			tableView.reloadData()
-		}
-	}
-	
-	func didTapOnCancelButton() {
-		isSearching = false
-		
-		tableView.tableHeaderView = nil
-		tableView.separatorStyle = .SingleLine
-		tableView.reloadData()
-	}
-	
-	func didChangeSearchText(searchText: String) {
-		let searchString = searchText
-
-		let saidByFilter = filteredPosts.filter { $0.author.containsString(searchString) }
-		let hearByFilter = filteredPosts.filter { stringVersion($0.heardBy).containsString(searchString) }
-		
-		searchFilteredPosts = saidByFilter + hearByFilter
-
-		tableView.reloadData()
-	}
+//	func didStartSearching() {
+//		isSearching = true
+//		tableView.reloadData()
+//	}
+//	
+//	func didTapOnSearchButton() {
+//		if !isSearching {
+//			isSearching = true
+//			tableView.reloadData()
+//		}
+//	}
+//	
+//	func didTapOnCancelButton() {
+//		isSearching = false
+//		
+//		tableView.tableHeaderView = nil
+//		tableView.separatorStyle = .SingleLine
+//		tableView.reloadData()
+//	}
+//	
+//	func didChangeSearchText(searchText: String) {
+//		let searchString = searchText
+//
+//		let saidByFilter = filteredPosts.filter { $0.author.containsString(searchString) }
+//		let hearByFilter = filteredPosts.filter { stringVersion($0.heardBy).containsString(searchString) }
+//		
+//		searchFilteredPosts = saidByFilter + hearByFilter
+//
+//		tableView.reloadData()
+//	}
 	
 	
 }
