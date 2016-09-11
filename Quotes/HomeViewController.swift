@@ -34,8 +34,8 @@ class HomeViewController: UITableViewController {
 		super.viewDidLoad()
 		setupNavBar()
 		setupSearch()
-		//setupCustomSearchController()
 		
+		//setupCustomSearchController()
 		//tableView.tableHeaderView = searchController.searchBar
 	
 		view.backgroundColor = UIColor.whiteColor()
@@ -206,8 +206,6 @@ class HomeViewController: UITableViewController {
 		searchController.searchBar.barTintColor = UIColor.whiteColor()
 		
 		UIBarButtonItem.appearanceWhenContainedInInstancesOfClasses([UISearchBar.self]).setTitleTextAttributes([NSFontAttributeName: UIFont(name: Constants.headerFont, size: 17)!], forState: .Normal)
-
-		
 	}
 	
 	func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
@@ -232,14 +230,6 @@ class HomeViewController: UITableViewController {
 		searchController.searchBar.resignFirstResponder()
 	}
 	
-//	func setupCustomSearchController() {
-//		customSearchController = CustomSearchController(searchResultsController: self, searchBarFrame: CGRectMake(0.0, 0.0, tableView.frame.size.width, 60.0), searchBarFont: UIFont(name: Constants.basicFont, size:16)!, searchBarTextColor: UIColor.quotesRed(), searchBarTintColor: UIColor.whiteColor())
-//		
-//		customSearchController.customSearchBar.placeholder = "Search who said it or who heard it"
-//		customSearchController.dimsBackgroundDuringPresentation = false
-//		customSearchController.customDelegate = self
-//	}
-	
 	func stringVersion(numArray: [String]) -> String {
 		var stringVersion = ""
 		
@@ -251,6 +241,16 @@ class HomeViewController: UITableViewController {
 		}
 		return stringVersion
 	}
+	
+	// MARK: Tried to make a custom searchController and SearchBar but decided that was unncecessary
+	
+//	func setupCustomSearchController() {
+//		customSearchController = CustomSearchController(searchResultsController: self, searchBarFrame: CGRectMake(0.0, 0.0, tableView.frame.size.width, 60.0), searchBarFont: UIFont(name: Constants.basicFont, size:16)!, searchBarTextColor: UIColor.quotesRed(), searchBarTintColor: UIColor.whiteColor())
+//
+//		customSearchController.customSearchBar.placeholder = "Search who said it or who heard it"
+//		customSearchController.dimsBackgroundDuringPresentation = false
+//		customSearchController.customDelegate = self
+//	}
 	
 //	func didStartSearching() {
 //		isSearching = true
@@ -312,8 +312,6 @@ extension HomeViewController: UISearchResultsUpdating {
 	
 	
 }
-
-
 
 
 extension HomeViewController: QuoteTableViewCellDelegate {
