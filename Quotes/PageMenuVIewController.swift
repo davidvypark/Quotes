@@ -22,18 +22,20 @@ class PageMenuViewController: UIViewController {
 	}
 	
 	func setupNavBar() {
-		let image = UIImage(named: "quoteBook")
-		let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
-		imageView.contentMode = .ScaleAspectFit
-		imageView.image = image
-		self.navigationItem.titleView = imageView
+		//let image = UIImage(named: "quoteBook")
+		//let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+//		imageView.contentMode = .ScaleAspectFit
+//		imageView.image = image
+		//self.navigationItem.titleView = imageView
 		
-		self.navigationController?.navigationBar.barTintColor = UIColor.peterRiverColor()
+		
+		self.navigationController?.title = "QUOTES"
+		self.navigationController?.navigationBar.barTintColor = UIColor.whiteColor()
 		self.navigationController?.navigationBar.shadowImage = UIImage()
 		self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
 		self.navigationController?.navigationBar.translucent = false
 		self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
-		self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont(name: Constants.headerFont, size: 25)!]
+		self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.quotesRed(), NSFontAttributeName: UIFont(name: Constants.headerFont, size: 25)!]
 	}
 	
 	func setupPages() {

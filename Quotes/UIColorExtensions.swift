@@ -122,6 +122,18 @@ extension UIColor {
 	class func softBlue()->UIColor {
 		return UIColor(r: 76, g: 179, b: 254)
 	}
+	
+	class func quotesRed()->UIColor {
+		return UIColor(r: 237, g:82, b:90)
+	}
+	
+	class func quotesGrey()->UIColor {
+		return UIColor(r: 177, g:169, b:169)
+	}
+	
+	class func quotesTabBar()->UIColor {
+		return UIColor(r:241, g:241, b:241)
+	}
 
     
 }

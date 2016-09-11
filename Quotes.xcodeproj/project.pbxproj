@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5E36F1F148EE724EAC70414D /* Pods_Quotes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82390D33BD8E8BBE3531BE74 /* Pods_Quotes.framework */; };
+		FF4A7AF21D84C17900AF5D30 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4A7AF11D84C17900AF5D30 /* TabBarController.swift */; };
 		FF8AAE661D73746200331852 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8AAE651D73746200331852 /* ProfileViewController.swift */; };
 		FF8AAE691D73798200331852 /* QuoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8AAE681D73798200331852 /* QuoteTableViewCell.swift */; };
 		FF8AAE6B1D73799800331852 /* QuoteQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8AAE6A1D73799800331852 /* QuoteQuote.swift */; };
@@ -39,6 +40,7 @@
 		1D701768B96B902F0EA2F52B /* Pods-Quotes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Quotes.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Quotes/Pods-Quotes.debug.xcconfig"; sourceTree = "<group>"; };
 		82390D33BD8E8BBE3531BE74 /* Pods_Quotes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Quotes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B85E1C97D30D6C522186B77A /* Pods-Quotes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Quotes.release.xcconfig"; path = "Pods/Target Support Files/Pods-Quotes/Pods-Quotes.release.xcconfig"; sourceTree = "<group>"; };
+		FF4A7AF11D84C17900AF5D30 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		FF8AAE651D73746200331852 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		FF8AAE681D73798200331852 /* QuoteTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuoteTableViewCell.swift; sourceTree = "<group>"; };
 		FF8AAE6A1D73799800331852 /* QuoteQuote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuoteQuote.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 		FF8AAE671D73795300331852 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FF4A7AF11D84C17900AF5D30 /* TabBarController.swift */,
 				FF8AAE7E1D765D0700331852 /* LoginViewController.swift */,
 				FFF0E0231D7A1CC70021DA85 /* VerifySMSViewController.swift */,
 				FFCE34621D71F50C00CF2F69 /* PageMenuVIewController.swift */,
@@ -309,6 +312,7 @@
 				FF8AAE691D73798200331852 /* QuoteTableViewCell.swift in Sources */,
 				FF8AAE7D1D75177600331852 /* Constants.swift in Sources */,
 				FF8AAE661D73746200331852 /* ProfileViewController.swift in Sources */,
+				FF4A7AF21D84C17900AF5D30 /* TabBarController.swift in Sources */,
 				FFF0E0B71D8464A00021DA85 /* QuotesAPI.swift in Sources */,
 				FFCE34611D71F50C00CF2F69 /* AppDelegate.swift in Sources */,
 				FF8AAE6B1D73799800331852 /* QuoteQuote.swift in Sources */,

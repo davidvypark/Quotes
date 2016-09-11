@@ -272,9 +272,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 	func goToPageMenu() {
 		
 		let storyboard = UIStoryboard(name: "Main", bundle: nil)
-		let naviVC = storyboard.instantiateViewControllerWithIdentifier("NavigationVC") as! UINavigationController
+		let tabBar = storyboard.instantiateViewControllerWithIdentifier("tabBar") as! UITabBarController
 		let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-		appDelegate.window?.rootViewController = naviVC
+		appDelegate.window?.rootViewController = tabBar
 	
 	}
 }

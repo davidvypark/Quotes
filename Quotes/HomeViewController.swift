@@ -26,14 +26,11 @@ class HomeViewController: UITableViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		
-//		shared.currentUser = "3333333333"			//TEMP to bypass login screen
-//		shared.fetchValidPhoneNumbers()				//xxxxx
-//		shared.fetchContacts()						//xxxxx
-		
+		setupNavBar()
+	
 		view.backgroundColor = UIColor.quotesBackgroundColor()
 		tableView.registerClass(QuoteTableViewCell.self, forCellReuseIdentifier: QuoteTableViewCell.cellIdentifier)
-		tableView.separatorStyle = .None
+		tableView.separatorStyle = .SingleLine
 		tableView.allowsSelection = false
 		tableView.rowHeight = UITableViewAutomaticDimension
 		tableView.estimatedRowHeight = view.frame.height / 4
@@ -44,6 +41,23 @@ class HomeViewController: UITableViewController {
 			self.filterPosts()
 		}
 
+	}
+	
+	func setupNavBar() {
+		
+		
+		self.navigationItem.title = "QUOTES"
+		//self.navigationController?.navigationBar.frame = CGRectMake(0, 0, view.frame.width, view.frame.height * 0.5)
+		
+		
+		
+//		navBar.frame = CGRectMake(0, 0, view.frame.width, view.frame.height * 0.117)
+//		navBar.barTintColor = UIColor.whiteColor()
+//		self.title = "QUOTES"
+//		navBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.quotesRed(), NSFontAttributeName: UIFont(name: Constants.headerFont, size: 25)!]
+		
+		//view.addSubview(navBar)
+		
 	}
 	
 	func fetchPostsData(completion: ()-> ()) {
@@ -79,6 +93,10 @@ class HomeViewController: UITableViewController {
 		
 		let post = filteredPosts[indexPath.row]
 		var heardByString = ""
+		
+		cell.preservesSuperviewLayoutMargins = false
+		cell.separatorInset = UIEdgeInsetsZero
+		cell.layoutMargins = UIEdgeInsetsZero
 		
 		print(post)
 		

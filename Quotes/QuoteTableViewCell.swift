@@ -34,18 +34,18 @@ class QuoteTableViewCell: UITableViewCell {
 	}
 	
 	func setupCell() {
-		self.backgroundColor = UIColor.quotesBackgroundColor()
+		self.backgroundColor = UIColor.whiteColor()
 		
-		addSubview(box)
-		box.snp_makeConstraints { (make) in
-			make.left.equalTo(self.snp_left).offset(10)
-			make.top.equalTo(self.snp_top).offset(3)
-			make.bottom.equalTo(self.snp_bottom).offset(-3)
-			make.right.equalTo(self.snp_right).offset(-10)
-		}
-		box.backgroundColor = UIColor.whiteColor()
-		box.layer.borderWidth = 1.5
-		box.layer.borderColor = UIColor.quotesBorderColor().CGColor
+//		addSubview(box)
+//		box.snp_makeConstraints { (make) in
+//			make.left.equalTo(self.snp_left).offset(10)
+//			make.top.equalTo(self.snp_top).offset(3)
+//			make.bottom.equalTo(self.snp_bottom).offset(-3)
+//			make.right.equalTo(self.snp_right).offset(-10)
+//		}
+//		box.backgroundColor = UIColor.whiteColor()
+//		box.layer.borderWidth = 1.5
+//		box.layer.borderColor = UIColor.quotesBorderColor().CGColor
 		
 		addSubview(quoteBoxLabel)
 		quoteBoxLabel.snp_makeConstraints { (make) in
@@ -84,7 +84,7 @@ class QuoteTableViewCell: UITableViewCell {
 		profilePic.snp_makeConstraints { (make) in
 			make.top.equalTo(self.snp_top).offset(20)
 			make.centerX.equalTo(self.snp_centerX).dividedBy(4.5)
-			make.width.equalTo(self.snp_width).dividedBy(9)
+			make.width.equalTo(self.snp_width).multipliedBy(0.11)
 			make.height.equalTo(self.snp_width).dividedBy(9)
 		}
 		//profilePic.image = UIImage(named: "profilePic")?.circle
@@ -108,6 +108,7 @@ class QuoteTableViewCell: UITableViewCell {
 		}
 		//dateLabel.backgroundColor = UIColor.concreteColor()
 		//dateLabel.text = "12/11/16"
+		dateLabel.textColor = UIColor.quotesGrey()
 		dateLabel.adjustsFontSizeToFitWidth = true
 		
 	}
