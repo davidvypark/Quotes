@@ -37,7 +37,6 @@
 		FFF0E0281D7D14F40021DA85 /* NSDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF0E0271D7D14F40021DA85 /* NSDateExtension.swift */; };
 		FFF0E02A1D7E2E5A0021DA85 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF0E0291D7E2E5A0021DA85 /* StringExtension.swift */; };
 		FFF0E0B71D8464A00021DA85 /* QuotesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF0E0B61D8464A00021DA85 /* QuotesAPI.swift */; };
-		FFF0E0B91D8467690021DA85 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF0E0B81D8467690021DA85 /* Secrets.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,7 +74,6 @@
 		FFF0E0271D7D14F40021DA85 /* NSDateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtension.swift; sourceTree = "<group>"; };
 		FFF0E0291D7E2E5A0021DA85 /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		FFF0E0B61D8464A00021DA85 /* QuotesAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuotesAPI.swift; sourceTree = "<group>"; };
-		FFF0E0B81D8467690021DA85 /* Secrets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,7 +176,6 @@
 		FFCE345F1D71F50C00CF2F69 /* Quotes */ = {
 			isa = PBXGroup;
 			children = (
-				FFF0E0B81D8467690021DA85 /* Secrets.swift */,
 				FFCE34601D71F50C00CF2F69 /* AppDelegate.swift */,
 				FF8AAE7C1D75177600331852 /* Constants.swift */,
 				FFCE34641D71F50C00CF2F69 /* Main.storyboard */,
@@ -340,7 +337,6 @@
 				FF4A7AFA1D85120800AF5D30 /* CustomSearchController.swift in Sources */,
 				FFCE34611D71F50C00CF2F69 /* AppDelegate.swift in Sources */,
 				FF8AAE6B1D73799800331852 /* QuoteQuote.swift in Sources */,
-				FFF0E0B91D8467690021DA85 /* Secrets.swift in Sources */,
 				FFCE34751D73683800CF2F69 /* HomeViewController.swift in Sources */,
 				FFF0E02A1D7E2E5A0021DA85 /* StringExtension.swift in Sources */,
 				FF8AAE6E1D737D4900331852 /* QuoteUser.swift in Sources */,
